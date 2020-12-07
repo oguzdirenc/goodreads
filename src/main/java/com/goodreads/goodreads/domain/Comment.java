@@ -23,4 +23,11 @@ public class Comment {
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
+    @ManyToOne
+    @JoinColumn(name = "tv_series_id")
+    private TvSeries tvSeries;
+
+    @ManyToOne
+    @JoinColumn(name = "book_id")
+    private Book book;
 }

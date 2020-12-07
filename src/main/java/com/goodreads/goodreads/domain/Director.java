@@ -24,4 +24,7 @@ public class Director {
     @ManyToMany
     private Set<Movie> movieSet =new HashSet<Movie>();
 
+    @ManyToMany
+    private Set<TvSeries> tvSeriesSet = new HashSet<TvSeries>();
+
 }

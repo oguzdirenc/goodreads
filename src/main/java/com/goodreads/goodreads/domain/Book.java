@@ -6,25 +6,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Actor {
+public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long actorId;
-    private String actorName;
+    private Long bookId;
+    private String bookName;
+    private int bookPage;
 
-    @ManyToMany
-    private Set<Movie> movieSet =new HashSet<Movie>();
-
-    @ManyToMany
-    private Set<TvSeries> tvSeriesSet = new HashSet<TvSeries>();
-
+    @OneToMany
+    private List<Comment> bookCommentList = new ArrayList<Comment>();
 }
