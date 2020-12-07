@@ -7,7 +7,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -24,4 +26,10 @@ public class Book {
 
     @OneToMany
     private List<Comment> bookCommentList = new ArrayList<Comment>();
+
+    @ManyToMany
+    private Set<Author> authorSet = new HashSet<Author>();
+
+    @ManyToMany
+    private Set<Publisher> publisherSet = new HashSet<Publisher>();
 }
