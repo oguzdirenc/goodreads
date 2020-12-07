@@ -7,7 +7,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -20,11 +22,16 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long movieId;
     private String movieName;
-    private String actor;
     private String director;
     private Long imdb;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "movie")
     private List<Comment> commentList = new ArrayList<>();
+
+    @ManyToMany
+    private Set<Actor> actorSet =new HashSet<Actor>();
+
+    @ManyToMany
+    private Set<Director> directorSet = new HashSet<Director>();
 
 }

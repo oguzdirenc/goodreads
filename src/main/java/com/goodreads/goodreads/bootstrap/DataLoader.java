@@ -24,11 +24,7 @@ public class DataLoader implements CommandLineRunner {
 
     public void loadData(){
 
-
-
-
         Movie movie1 = new Movie();
-        movie1.setActor("Burak Topçu");
         movie1.setDirector("Onurcan Kurt");
         movie1.setImdb(1l);
         movie1.setMovieName("TENET");
