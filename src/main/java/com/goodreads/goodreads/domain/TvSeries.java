@@ -32,7 +32,10 @@ public class TvSeries {
     @ManyToMany
     private Set<Director> tvSeriesDirectorSet = new HashSet<Director>();
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "tv_series")
     private List<Comment> tvSeriesCommentList = new ArrayList<Comment>();
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "tv_series")
+    private Set<Type> tvSeriesTypeSet = new HashSet<>();
 
 }

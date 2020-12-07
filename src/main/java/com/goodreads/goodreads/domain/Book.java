@@ -24,7 +24,7 @@ public class Book {
     private String bookName;
     private int bookPage;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "book")
     private List<Comment> bookCommentList = new ArrayList<Comment>();
 
     @ManyToMany
@@ -32,4 +32,7 @@ public class Book {
 
     @ManyToMany
     private Set<Publisher> publisherSet = new HashSet<Publisher>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
+    private Set<Type> typeSet = new HashSet<>();
 }
