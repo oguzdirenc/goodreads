@@ -12,9 +12,9 @@ public class MovieController {
 
     private final MovieService movieService;
 
-    @RequestMapping({"/","","/index"})
+    @RequestMapping({"/movies","/movie/movies"})
     public String getMovies(Model model){
     model.addAttribute("Movies",movieService.findAllMovies());
-    return "index";
+    return "/Movie/movies";
     }
 }
