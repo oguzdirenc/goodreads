@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -24,6 +25,7 @@ public class Movie {
     private String movieName;
     private String director;
     private Long imdb;
+    private LocalDate movieUpdateDate;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "movie")
     private List<Comment> commentList = new ArrayList<>();

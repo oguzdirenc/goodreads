@@ -1,7 +1,11 @@
 package com.goodreads.goodreads.bootstrap;
 
+import com.goodreads.goodreads.domain.Author;
+import com.goodreads.goodreads.domain.Book;
 import com.goodreads.goodreads.domain.Comment;
 import com.goodreads.goodreads.domain.Movie;
+import com.goodreads.goodreads.repository.AuthorRepository;
+import com.goodreads.goodreads.repository.BookRepository;
 import com.goodreads.goodreads.repository.CommentRepository;
 import com.goodreads.goodreads.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +18,8 @@ public class DataLoader implements CommandLineRunner {
 
     private final MovieRepository movieRepository;
     private final CommentRepository commentRepository;
+    private final BookRepository bookRepository;
+    private final AuthorRepository authorRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -23,8 +29,19 @@ public class DataLoader implements CommandLineRunner {
 
     }
 
-
     public void loadData(){
+
+        Author author1 = new Author();
+        author1.setAuthorName("William Golding");
+
+        authorRepository.save(author1);
+
+        Book book1 = new Book();
+        book1.setBookName("Sineklerin Tanrısı");
+        book1.setBookPage(260);
+        book1.getAuthorSet().add(author1);
+
+        bookRepository.save(book1);
 
         Movie movie1 = new Movie();
         movie1.setDirector("Onurcan Kurt");
