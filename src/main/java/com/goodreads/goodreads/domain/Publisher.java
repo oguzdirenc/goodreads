@@ -21,6 +21,6 @@ public class Publisher {
     private Long publisherId;
     private String publisherName;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "publisherSet")
     private Set<Book> publisherBookSet = new HashSet<Book>();
 }

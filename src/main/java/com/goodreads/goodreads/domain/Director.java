@@ -21,10 +21,10 @@ public class Director {
     private Long directorId;
     private String directorName;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "directorSet")
     private Set<Movie> movieSet =new HashSet<Movie>();
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "tvSeriesDirectorSet")
     private Set<TvSeries> tvSeriesSet = new HashSet<TvSeries>();
 
 }

@@ -21,10 +21,10 @@ public class Actor {
     private Long actorId;
     private String actorName;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "actorSet")
     private Set<Movie> movieSet =new HashSet<Movie>();
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "tvSeriesActorSet")
     private Set<TvSeries> tvSeriesSet = new HashSet<TvSeries>();
 
 }

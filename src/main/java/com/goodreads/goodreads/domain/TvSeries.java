@@ -27,9 +27,15 @@ public class TvSeries {
     private double imdb;
 
     @ManyToMany
+    @JoinTable(name = "tvSeries_actor",
+              joinColumns = {@JoinColumn(name = "tv_series_id")},
+              inverseJoinColumns = {@JoinColumn(name = "actor_id")})
     private Set<Actor> tvSeriesActorSet = new HashSet<Actor>();
 
     @ManyToMany
+    @JoinTable(name = "tvSeries_director",
+               joinColumns ={@JoinColumn(name = "tv_series_id")},
+               inverseJoinColumns = {@JoinColumn(name = "director_id")})
     private Set<Director> tvSeriesDirectorSet = new HashSet<Director>();
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "tvSeries")

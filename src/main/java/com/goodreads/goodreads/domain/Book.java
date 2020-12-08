@@ -28,9 +28,15 @@ public class Book {
     private List<Comment> bookCommentList = new ArrayList<Comment>();
 
     @ManyToMany
+    @JoinTable(name = "book_author",
+            joinColumns = {@JoinColumn(name = "book_id")},
+            inverseJoinColumns = {@JoinColumn(name = "author_id")})
     private Set<Author> authorSet = new HashSet<Author>();
 
     @ManyToMany
+    @JoinTable(name = "book_publisher",
+            joinColumns = {@JoinColumn(name = "book_id")},
+            inverseJoinColumns = {@JoinColumn(name = "publisher_id")})
     private Set<Publisher> publisherSet = new HashSet<Publisher>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")

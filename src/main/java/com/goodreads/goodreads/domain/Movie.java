@@ -29,9 +29,15 @@ public class Movie {
     private List<Comment> commentList = new ArrayList<>();
 
     @ManyToMany
+    @JoinTable(name = "movie_actor",
+            joinColumns = {@JoinColumn(name = "movie_id")},
+            inverseJoinColumns = {@JoinColumn(name = "actor_id")})
     private Set<Actor> actorSet =new HashSet<Actor>();
 
     @ManyToMany
+    @JoinTable(name = "movie_director",
+            joinColumns = {@JoinColumn(name = "movie_id")},
+            inverseJoinColumns = {@JoinColumn(name = "director_id")})
     private Set<Director> directorSet = new HashSet<Director>();
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "movie")

@@ -5,7 +5,6 @@ import com.goodreads.goodreads.domain.Movie;
 import com.goodreads.goodreads.repository.CommentRepository;
 import com.goodreads.goodreads.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
-import org.attoparser.trace.MarkupTraceEvent;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +17,10 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        loadData();
+        if(movieRepository.count()==0){
+            loadData();
+        }
+
     }
 
 
