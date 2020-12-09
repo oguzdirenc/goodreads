@@ -15,6 +15,6 @@ public class MovieController {
     @RequestMapping({"/movies","/movie/movies"})
     public String getMovies(Model model){
     model.addAttribute("Movies",movieService.findAllMovies());
-    return "/Movie/movies";
+    return "/movie/movies";
     }
 }

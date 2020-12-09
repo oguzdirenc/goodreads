@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TV SERIES</title>
+</head>
+<body>
+<tr th:each="tvSeries : ${TvSeries}">
+
+    <td th:text="${tvSeries.tvSeriesName}"></td>
+
+    <td th:text="${tvSeries.over}"></td>
+
+    <td th:text="${tvSeries.imdb}"></td>
+
+    <td><span th:each="actor : ${tvSeries.getTvSeriesActorSet()}"
+              th:text="${actor.actorName}" /> </span></td>
+
+</tr>
+</body>
+</html>

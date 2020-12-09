@@ -15,6 +15,6 @@ public class BookController {
     @RequestMapping({"/book/books","/books"})
     public String getBooks(Model model){
         model.addAttribute("Books",bookService.findAllBooks());
-        return "Book/books";
+        return "book/books";
     }
 }
