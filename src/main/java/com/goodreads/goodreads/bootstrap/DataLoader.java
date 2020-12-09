@@ -27,6 +27,7 @@ public class DataLoader implements CommandLineRunner {
 
     public void loadData(){
 
+
         Actor actor1 =new Actor();
         actor1.setActorName("Bryan Cranston");
 
@@ -69,5 +70,33 @@ public class DataLoader implements CommandLineRunner {
         comment2.setDescription("Daha kötüsü yok");
         comment2.setMovie(movie1);
         commentRepository.save(comment2);
+
+        Book book2 = new Book();
+        book2.setBookName("Sineklerin Tanrısı");
+        book2.setBookPage(260);
+        book2.getAuthorSet().add(author1);
+
+        bookRepository.save(book2);
+
+        Book book3 = new Book();
+        book3.setBookName("Sineklerin Tanrısı");
+        book3.setBookPage(260);
+        book3.getAuthorSet().add(author1);
+
+        bookRepository.save(book3);
+
+        Book book4 = new Book();
+        book4.setBookName("Sineklerin Tanrısı");
+        book4.setBookPage(260);
+        book4.getAuthorSet().add(author1);
+
+        bookRepository.save(book4);
+
+        Book book5 = new Book();
+        book5.setBookName("Sineklerin Tanrısı");
+        book5.setBookPage(260);
+        book5.getAuthorSet().add(author1);
+
+        bookRepository.save(book5);
     }
 }
