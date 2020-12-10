@@ -16,9 +16,7 @@ public class BookController {
     @RequestMapping({"/book/books","/books"})
     public String getBooks(Model model){
         model.addAttribute("Books",bookService.findAllBooks());
-        for(Book b:bookService.getLast4Book()){
-            System.out.println(b.getBookName());
-        }
+        model.addAttribute("Last4Book",bookService.getLast4Book());
 
         return "book/books";
     }

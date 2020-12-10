@@ -5,14 +5,20 @@
     <title>BOOK</title>
 </head>
 <body>
-<tr th:each="book : ${Books}">
+<tr th:each="book : ${Books}"><h3>
 
     <td th:text="${book.bookName}"></td>
 
     <td th:text="${book.bookPage}"></td>
     <td><span th:each="author : ${book.getAuthorSet()}"
               th:text="${author.authorName}" /> </span></td>
+    </h3>
+</tr>
 
+<tr th:each="last4Book : ${Last4Book}">
+    <h1>
+        <td th:text="${last4Book.bookName}"></td>
+    </h1>
 </tr>
 </body>
 </html>

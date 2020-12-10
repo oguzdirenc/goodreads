@@ -12,5 +12,12 @@
     <td th:text="${movie.director}"></td>
 
 </tr>
+<tr th:each="last4Movie : ${Last4Movies}"><h1>
+
+    <td th:text="${last4Movie.movieName}"></td>
+
+</h1>
+
+</tr>
 </body>
 </html>

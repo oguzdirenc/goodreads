@@ -16,9 +16,8 @@ public class MovieController {
     @RequestMapping({"/movies","/movie/movies"})
     public String getMovies(Model model){
     model.addAttribute("Movies",movieService.findAllMovies());
-    for(Movie m:movieService.getLast4Movie()){
-        System.out.println(m.getMovieName());
-    }
+    model.addAttribute("Last4Movies",movieService.getLast4Movie());
+
     return "/movie/movies";
     }
 }

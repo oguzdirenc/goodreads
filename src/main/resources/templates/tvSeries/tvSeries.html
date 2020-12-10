@@ -17,5 +17,11 @@
               th:text="${actor.actorName}" /> </span></td>
 
 </tr>
+<tr th:each="last4TvSeries : ${Last4TvSeries}"><h1>
+
+    <td th:text="${last4TvSeries.tvSeriesName}"></td>
+
+    </h1>
+</tr>
 </body>
 </html>

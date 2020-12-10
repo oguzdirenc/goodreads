@@ -16,9 +16,10 @@ public class TvSeriesController {
     @RequestMapping({"/tvSeries/tvSeries","/tvSeries"})
     public String getTvSeries(Model model){
         model.addAttribute("TvSeries",tvSeriesService.findAllTvSeries());
-        for(TvSeries t:tvSeriesService.getLast4TvSeries()){
-            System.out.println(t.getTvSeriesName());
-        }
+        model.addAttribute("Last4TvSeries",tvSeriesService.getLast4TvSeries());
+       // for(TvSeries t:tvSeriesService.getLast4TvSeries()){
+         //   System.out.println(t.getTvSeriesName());
+        //}
         return "tvSeries/tvSeries";
     }
 }
