@@ -1,24 +1,85 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+          crossorigin="anonymous">
+
     <meta charset="UTF-8">
     <title>BOOK</title>
+
+
 </head>
 <body>
-<tr th:each="book : ${Books}"><h3>
 
-    <td th:text="${book.bookName}"></td>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">MyList</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/books">Book</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/movies">Movie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/tvSeries">TvSeries</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="row">
+
+
+
+<tr th:each="book : ${Books}">
+    <div class="col-sm-2">
+
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${book.bookName}"></h5>
+            <p class="card-text" th:each="author : ${book.getAuthorSet()}"
+               th:text="${author.authorName}" ></p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
 
     <td th:text="${book.bookPage}"></td>
     <td><span th:each="author : ${book.getAuthorSet()}"
               th:text="${author.authorName}" /> </span></td>
-    </h3>
+    </div>
 </tr>
+    </div>
+</div>
 
 <tr th:each="last4Book : ${Last4Book}">
     <h1>
         <td th:text="${last4Book.bookName}"></td>
     </h1>
+
+
 </tr>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+
 </body>
 </html>
