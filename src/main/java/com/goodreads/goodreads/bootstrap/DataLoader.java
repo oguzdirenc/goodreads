@@ -42,6 +42,62 @@ public class DataLoader implements CommandLineRunner {
 
         tvSeriesRepository.save(tvSeries1);
 
+        Actor actor2 =new Actor();
+        actor2.setActorName("Bryan Crston");
+
+        actorRepository.save(actor2);
+
+        TvSeries tvSeries2 = new TvSeries();
+        tvSeries2.setTvSeriesName("Brea222ing Bad");
+        tvSeries2.setImdb(9.8);
+        tvSeries2.setOver(true);
+        tvSeries2.setTvSeriesSeason(9);
+        tvSeries2.getTvSeriesActorSet().add(actor2);
+
+        tvSeriesRepository.save(tvSeries2);
+
+        Actor actor3 =new Actor();
+        actor3.setActorName("Cranston");
+
+        actorRepository.save(actor3);
+
+        TvSeries tvSeries3 = new TvSeries();
+        tvSeries3.setTvSeriesName("Bad");
+        tvSeries3.setImdb(9.8);
+        tvSeries3.setOver(true);
+        tvSeries3.setTvSeriesSeason(9);
+        tvSeries3.getTvSeriesActorSet().add(actor3);
+
+        tvSeriesRepository.save(tvSeries3);
+
+        Actor actor4 =new Actor();
+        actor4.setActorName("Bryanston");
+
+        actorRepository.save(actor4);
+
+        TvSeries tvSeries4 = new TvSeries();
+        tvSeries4.setTvSeriesName("Breaking");
+        tvSeries4.setImdb(9.8);
+        tvSeries4.setOver(true);
+        tvSeries4.setTvSeriesSeason(9);
+        tvSeries4.getTvSeriesActorSet().add(actor4);
+
+        tvSeriesRepository.save(tvSeries4);
+
+        Actor actor5 =new Actor();
+        actor5.setActorName("Bryan Cranstonerger");
+
+        actorRepository.save(actor5);
+
+        TvSeries tvSeries5 = new TvSeries();
+        tvSeries5.setTvSeriesName("Brwefeaking Bad");
+        tvSeries5.setImdb(9.8);
+        tvSeries5.setOver(true);
+        tvSeries5.setTvSeriesSeason(9);
+        tvSeries5.getTvSeriesActorSet().add(actor5);
+
+        tvSeriesRepository.save(tvSeries5);
+
         Author author1 = new Author();
         author1.setAuthorName("William Golding");
 
@@ -60,6 +116,34 @@ public class DataLoader implements CommandLineRunner {
         movie1.setMovieName("TENET");
 
         movieRepository.save(movie1);
+
+        Movie movie2 = new Movie();
+        movie2.setDirector("Onurcan ");
+        movie2.setImdb(1l);
+        movie2.setMovieName("TENET");
+
+        movieRepository.save(movie2);
+
+        Movie movie3 = new Movie();
+        movie3.setDirector("Kurt");
+        movie3.setImdb(1l);
+        movie3.setMovieName("TENET");
+
+        movieRepository.save(movie3);
+
+        Movie movie4 = new Movie();
+        movie4.setDirector("Onurcan Kurt");
+        movie4.setImdb(1l);
+        movie4.setMovieName("TENEEEEEE");
+
+        movieRepository.save(movie4);
+
+        Movie movie5 = new Movie();
+        movie5.setDirector("Onurcan Kurt");
+        movie5.setImdb(1l);
+        movie5.setMovieName("TENTET");
+
+        movieRepository.save(movie5);
 
         Comment comment1 = new Comment();
         comment1.setDescription("Bok gibi film");

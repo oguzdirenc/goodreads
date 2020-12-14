@@ -28,7 +28,7 @@ public class MovieServiceImpl implements MovieService {
         List<Movie> last4Movie = movieRepository.getLast4Movie();
 
         if (last4Movie.size() >=4){
-            for(int i=0;i<=4 ;i++){
+            for(int i=0;i<4 ;i++){
                 movieList.add(last4Movie.get(i));
             }
             return movieList;

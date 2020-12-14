@@ -27,11 +27,12 @@ public class TvSeriesServiceImpl implements TvSeriesService {
         List<TvSeries> tvSeriesList = new ArrayList<>();
         List<TvSeries> last4TvSeries = tvSeriesRepository.getLast4TvSeries();
 
-        if(last4TvSeries.size() >=4){
-            for(int i=0;i<4;i++){
+        if(last4TvSeries.size() >= 4){
+            for(int i = 0; i < 4; i++){
                 tvSeriesList.add(last4TvSeries.get(i));
-                return tvSeriesList;
+
             }
+            return tvSeriesList;
         }
         return last4TvSeries;
     }
