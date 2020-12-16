@@ -6,6 +6,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Base64;
+
+
 @Component
 @RequiredArgsConstructor
 public class DataLoader implements CommandLineRunner {
@@ -17,6 +22,9 @@ public class DataLoader implements CommandLineRunner {
     private final ActorRepository actorRepository;
     private final TvSeriesRepository tvSeriesRepository;
 
+    InputStream i1 = DataLoader.class.getResourceAsStream("/books/sineklerintanrisi.jpg");
+
+
     @Override
     public void run(String... args) throws Exception {
         if(movieRepository.count()==0){
@@ -25,8 +33,10 @@ public class DataLoader implements CommandLineRunner {
 
     }
 
-    public void loadData(){
+    public void loadData() throws IOException {
 
+        byte[] byteImg = i1.readAllBytes();
+        String stringImg = Base64.getEncoder().encodeToString(byteImg);
 
         Actor actor1 =new Actor();
         actor1.setActorName("Bryan Cranston");
@@ -169,6 +179,7 @@ public class DataLoader implements CommandLineRunner {
         book3.setBookPage(260);
         book3.getAuthorSet().add(author1);
         book3.setBookPoint(7.4);
+        book3.setThumbnail(stringImg);
 
         bookRepository.save(book3);
 
@@ -181,11 +192,13 @@ public class DataLoader implements CommandLineRunner {
         bookRepository.save(book4);
 
         Book book5 = new Book();
-        book5.setBookName("Sineklerin Tanrısı");
+        book5.setBookName("Sineklerin Tanrısiiiiiiiiı");
         book5.setBookPage(260);
         book5.getAuthorSet().add(author1);
         book5.setBookPoint(3.2);
+        book5.setThumbnail(stringImg);
 
         bookRepository.save(book5);
+        i1.close();
     }
 }

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Stream;
 
 @Entity
 @Getter
@@ -26,6 +27,9 @@ public class Book {
     private int bookPage;
     private LocalDate bookUpdateDate;
     private double bookPoint;
+
+    @Lob
+    private String thumbnail;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "book")
     private List<Comment> bookCommentList = new ArrayList<Comment>();

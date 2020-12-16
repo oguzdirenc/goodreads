@@ -50,13 +50,14 @@
 
 
 <div class="container">
-    <div class="row">
 
-        <div class="col-md-3 container-all">
+    <div class="row container-all">
             <h3 class="headert">Books</h3>
+
         <tr th:each="book : ${Books}">
+            <div class="col-sm-3">
             <div class="card my-card" style="...">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img th:src="'data:image/jpeg;base64,'+${book.thumbnail}" class="card-img-top" alt="...">
                     <div class="card-body my-card-bg">
                         <h5 class="card-title" th:text="${book.bookName}"></h5>
                         <p class="card-text" th:each="author : ${book.getAuthorSet()}"
@@ -64,15 +65,18 @@
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
+            </div>
         </tr>
-            <a href="/books" class="card-link my-card-link">get more >>></a>
+
+            <a href="/books" class="card-link my-card-link">see more >>></a>
     </div>
 
 
+    <div class="row container-all">
 
-        <div class="col-md-3 container-all">
             <h3 class="headert">Movies</h3>
         <tr th:each="movie : ${Movies}">
+            <div class="col-sm-3">
             <div class="card my-card " style="...">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
@@ -81,13 +85,16 @@
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
+            </div>
         </tr>
-            <a href="/movies" class="card-link my-card-link">get more >>></a>
+            <a href="/movies" class="card-link my-card-link">see more >>></a>
     </div>
 
-        <div class="col-md-3 container-all">
+    <div class="row container-all">
+
             <h3 class="headert">TvSeries</h3>
         <tr th:each="tvSeries : ${TvSeries}">
+            <div class="col-sm-3">
             <div class="card my-card" style="...">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
@@ -97,12 +104,14 @@
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
+            </div>
         </tr>
-            <a href="/tvSeries" class="card-link my-card-link">get more >>></a>
+            <a href="/tvSeries" class="card-link my-card-link">see more >>></a>
     </div>
 
-    </div>
-</div>
+
+
+
 
 
 
