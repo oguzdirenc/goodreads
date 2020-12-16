@@ -107,6 +107,7 @@ public class DataLoader implements CommandLineRunner {
         book1.setBookName("Sineklerin Tanrısı");
         book1.setBookPage(260);
         book1.getAuthorSet().add(author1);
+        book1.setBookPoint(9.9);
 
         bookRepository.save(book1);
 
@@ -159,6 +160,7 @@ public class DataLoader implements CommandLineRunner {
         book2.setBookName("Sineklerin Tanrısı");
         book2.setBookPage(260);
         book2.getAuthorSet().add(author1);
+        book2.setBookPoint(8.6);
 
         bookRepository.save(book2);
 
@@ -166,6 +168,7 @@ public class DataLoader implements CommandLineRunner {
         book3.setBookName("Sineklerin Tanrısı");
         book3.setBookPage(260);
         book3.getAuthorSet().add(author1);
+        book3.setBookPoint(7.4);
 
         bookRepository.save(book3);
 
@@ -173,6 +176,7 @@ public class DataLoader implements CommandLineRunner {
         book4.setBookName("Sineklerin Tanrısı");
         book4.setBookPage(260);
         book4.getAuthorSet().add(author1);
+        book4.setBookPoint(9.9);
 
         bookRepository.save(book4);
 
@@ -180,6 +184,7 @@ public class DataLoader implements CommandLineRunner {
         book5.setBookName("Sineklerin Tanrısı");
         book5.setBookPage(260);
         book5.getAuthorSet().add(author1);
+        book5.setBookPoint(3.2);
 
         bookRepository.save(book5);
     }

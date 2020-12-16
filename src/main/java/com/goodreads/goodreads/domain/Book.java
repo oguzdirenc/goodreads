@@ -25,6 +25,7 @@ public class Book {
     private String bookName;
     private int bookPage;
     private LocalDate bookUpdateDate;
+    private double bookPoint;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "book")
     private List<Comment> bookCommentList = new ArrayList<Comment>();
