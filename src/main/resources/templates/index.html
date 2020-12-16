@@ -57,12 +57,12 @@
         <tr th:each="book : ${Books}">
             <div class="col-sm-3">
             <div class="card my-card" style="...">
-                    <img th:src="'data:image/jpeg;base64,'+${book.thumbnail}" class="card-img-top" alt="...">
+                    <img th:src="'data:image/jpeg;base64,'+${book.thumbnail}" class="card-image" alt="...">
                     <div class="card-body my-card-bg">
                         <h5 class="card-title" th:text="${book.bookName}"></h5>
                         <p class="card-text" th:each="author : ${book.getAuthorSet()}"
                            th:text="${author.authorName}" ></p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="card-link my-card-link all-card-link">About</a>
                     </div>
                 </div>
             </div>
@@ -78,11 +78,11 @@
         <tr th:each="movie : ${Movies}">
             <div class="col-sm-3">
             <div class="card my-card " style="...">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="..." class="card-image" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${movie.movieName}"></h5>
                         <p class="card-text" th:text="${movie.director}"></p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="card-link my-card-link all-card-link">About</a>
                     </div>
                 </div>
             </div>
@@ -96,12 +96,12 @@
         <tr th:each="tvSeries : ${TvSeries}">
             <div class="col-sm-3">
             <div class="card my-card" style="...">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="..." class="card-image" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${tvSeries.tvSeriesName}"></h5>
                         <p class="card-text" th:each="actor : ${tvSeries.getTvSeriesActorSet()}"
                            th:text="${actor.actorName}" ></p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="card-link my-card-link all-card-link">About</a>
                     </div>
                 </div>
             </div>

@@ -34,3 +34,15 @@ body{
     color: black;
     margin-left: 1150px;
 }
+.card-image{
+    width: 200px;
+    height: 250px;
+    margin-left: 50px;
+}
+.all-card-link{
+    margin-left: 210px;
+}
+.all-card-link:hover{
+    color: black;
+}
+
