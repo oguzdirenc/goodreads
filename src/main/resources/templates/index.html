@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link href="/styles.css" rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+    <link href="/navbar.css" rel="stylesheet" type="text/css" th:href="@{/navbar.css}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
           crossorigin="anonymous">
@@ -13,8 +14,8 @@
 
 <nav class="all-navbar-bg navbar navbar-expand-lg navbar-dark  ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><H2>
-            <img src="\mylist.jpg" width="80" height="80"></H2></a>
+        <a class="navbar-brand" href="http://localhost:8080/index"><H2>
+            <img src="\mylist.jpg" class="logo-format"></H2></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,7 +24,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="http://localhost:8080/index"><H3>
-                        <span class="badge bg-secondary">HOME</span></H3></a>
+                        <span class="badge home-bg text-dark">HOME</span></H3></a>
                 </li>
             </ul>
 
@@ -32,7 +33,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="http://localhost:8080/books"><H4>
-                        <span class="badge bg-success">BOOK</span></H4></a>
+                        <span class="badge text-dark bg-success">BOOK</span></H4></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="http://localhost:8080/movies"><H4><span class="badge bg-danger">MOVIE</span></H4></a>
@@ -51,7 +52,7 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-md-4 container-all">
+        <div class="col-md-3 container-all">
             <h3 class="headert">Books</h3>
         <tr th:each="book : ${Books}">
             <div class="card my-card" style="...">
@@ -69,7 +70,7 @@
 
 
 
-        <div class="col-md-4 container-all">
+        <div class="col-md-3 container-all">
             <h3 class="headert">Movies</h3>
         <tr th:each="movie : ${Movies}">
             <div class="card my-card " style="...">
@@ -84,7 +85,7 @@
             <a href="/movies" class="card-link my-card-link">get more >>></a>
     </div>
 
-        <div class="col-md-4 container-all">
+        <div class="col-md-3 container-all">
             <h3 class="headert">TvSeries</h3>
         <tr th:each="tvSeries : ${TvSeries}">
             <div class="card my-card" style="...">
