@@ -110,8 +110,31 @@ public class DataLoader implements CommandLineRunner {
 
         Author author1 = new Author();
         author1.setAuthorName("William Golding");
-
         authorRepository.save(author1);
+
+        Author author2 = new Author();
+        author2.setAuthorName("Jules Verne");
+        authorRepository.save(author2);
+
+        Author author3 = new Author();
+        author3.setAuthorName("Oscar Wilde");
+        authorRepository.save(author3);
+
+        Author author4 = new Author();
+        author4.setAuthorName("Benjamin Graham");
+        authorRepository.save(author4);
+
+        Author author5 = new Author();
+        author5.setAuthorName("Arthur C. Clarke");
+        authorRepository.save(author5);
+
+        Author author6 = new Author();
+        author6.setAuthorName("H. G. Wells");
+        authorRepository.save(author6);
+
+        Author author7 = new Author();
+        author7.setAuthorName("Ray Bradbury");
+        authorRepository.save(author7);
 
         Book book1 = new Book();
         book1.setBookName("Sineklerin Tanrısı");
@@ -194,7 +217,7 @@ public class DataLoader implements CommandLineRunner {
         Book book5 = new Book();
         book5.setBookName("Sineklerin Tanrısiiiiiiiiı");
         book5.setBookPage(260);
-        book5.getAuthorSet().add(author1);
+        book5.getAuthorSet().add(author3);
         book5.setBookPoint(3.2);
         book5.setThumbnail(stringImg);
 
