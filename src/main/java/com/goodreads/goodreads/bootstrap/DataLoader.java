@@ -110,30 +110,37 @@ public class DataLoader implements CommandLineRunner {
 
         Author author1 = new Author();
         author1.setAuthorName("William Golding");
+        author1.setAuthorFirstName("William");
         authorRepository.save(author1);
 
         Author author2 = new Author();
         author2.setAuthorName("Jules Verne");
+        author2.setAuthorFirstName("Jules");
         authorRepository.save(author2);
 
         Author author3 = new Author();
         author3.setAuthorName("Oscar Wilde");
+        author3.setAuthorFirstName("Oscar");
         authorRepository.save(author3);
 
         Author author4 = new Author();
         author4.setAuthorName("Benjamin Graham");
+        author4.setAuthorFirstName("Benjamin");
         authorRepository.save(author4);
 
         Author author5 = new Author();
         author5.setAuthorName("Arthur C. Clarke");
+        author5.setAuthorFirstName("Arthur");
         authorRepository.save(author5);
 
         Author author6 = new Author();
         author6.setAuthorName("H. G. Wells");
+        author6.setAuthorFirstName("Wells");
         authorRepository.save(author6);
 
         Author author7 = new Author();
         author7.setAuthorName("Ray Bradbury");
+        author7.setAuthorFirstName("Ray");
         authorRepository.save(author7);
 
         Book book1 = new Book();
