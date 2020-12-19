@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+
+    <link href="/navbar.css" rel="stylesheet" type="text/css" th:href="@{/navbar.css}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
           crossorigin="anonymous">
@@ -10,41 +12,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"><H2><span class="badge bg-light text-dark">MYLIST</span></H2></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/index"><H3>
-                        <span class="badge bg-secondary">HOME</span></H3></a>
-                </li>
-            </ul>
-
-
-            <ul class="navbar-nav">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/books"><H4>
-                        <span class="badge bg-success">BOOK</span></H4></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/movies"><H4><span class="badge bg-danger">MOVIE</span></H4></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/tvSeries"><H4>
-                        <span class="badge bg-warning text-dark">TVSERIES</span></H4></a>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</nav>
-
+<div th:replace="fragments/navigation :: navigation"></div>
 
 
 <tr th:each="tvSeries : ${TvSeries}">
