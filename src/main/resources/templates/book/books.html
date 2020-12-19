@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
+    <link href="/navbar.css" rel="stylesheet" type="text/css" th:href="@{/navbar.css}">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
           crossorigin="anonymous">
@@ -8,45 +12,12 @@
     <meta charset="UTF-8">
     <title>BOOK</title>
 
-
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-white">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"><H2>
-            <img src="\mylist.jpg" width="80" height="80"></H2></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/index"><H3>
-                        <span class="badge bg-secondary">HOME</span></H3></a>
-                </li>
-            </ul>
+<div th:replace="fragments/navigation :: navigation"></div>
 
 
-            <ul class="navbar-nav">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/books"><H4>
-                        <span class="badge bg-success">BOOK</span></H4></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/movies"><H4><span class="badge bg-danger">MOVIE</span></H4></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:8080/tvSeries"><H4>
-                        <span class="badge bg-warning text-dark">TVSERIES</span></H4></a>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</nav>
 
 <div class="container">
 
@@ -89,6 +60,9 @@
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
 
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
