@@ -22,7 +22,7 @@
 <div class="container">
 
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
 
         <div class="accordion " id="accordionExample" th:each="author:${Authors}">
 
@@ -44,13 +44,42 @@
 
                     </div>
                 </tr>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+        <div class="col-md-6 card my-book-card" style="max-width: 540px;">
+
+            <tr th:each="book : ${Books}">
+
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="..." alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${book.bookName}"></h5>
+                        <p class="card-text"><small class="text-muted" th:text="${book.bookPoint}"></small></p>
+                        <p class="card-text" th:each="comment : ${book.getBookCommentList()}" th:text="${comment.description}"></p>
+                        <p class="card-text"><small class="text-muted" th:each="author : ${book.getAuthorSet()}"
+                        th:text="${author.authorName}"></small></p>
+                    </div>
+                </div>
             </div>
 
+            </tr>
+
+</div>
 
 
-        </div>
 
-    </div>
+
+
+
 </div>
 </div>
 

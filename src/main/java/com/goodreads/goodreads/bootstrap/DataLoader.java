@@ -41,6 +41,18 @@ public class DataLoader implements CommandLineRunner {
         Actor actor1 =new Actor();
         actor1.setActorName("Bryan Cranston");
 
+        Movie movie1 = new Movie();
+        movie1.setDirector("Onurcan Kurt");
+        movie1.setImdb(1l);
+        movie1.setMovieName("TENET");
+
+        movieRepository.save(movie1);
+        Comment comment1 = new Comment();
+        comment1.setDescription("Bok gibi film");
+        comment1.setMovie(movie1);
+        commentRepository.save(comment1);
+
+
         actorRepository.save(actor1);
 
         TvSeries tvSeries1 = new TvSeries();
@@ -148,15 +160,11 @@ public class DataLoader implements CommandLineRunner {
         book1.setBookPage(260);
         book1.getAuthorSet().add(author1);
         book1.setBookPoint(9.9);
+        book1.getBookCommentList().add(comment1);
 
         bookRepository.save(book1);
 
-        Movie movie1 = new Movie();
-        movie1.setDirector("Onurcan Kurt");
-        movie1.setImdb(1l);
-        movie1.setMovieName("TENET");
 
-        movieRepository.save(movie1);
 
         Movie movie2 = new Movie();
         movie2.setDirector("Onurcan ");
@@ -186,10 +194,7 @@ public class DataLoader implements CommandLineRunner {
 
         movieRepository.save(movie5);
 
-        Comment comment1 = new Comment();
-        comment1.setDescription("Bok gibi film");
-        comment1.setMovie(movie1);
-        commentRepository.save(comment1);
+
 
         Comment comment2 = new Comment();
         comment2.setDescription("Daha kötüsü yok");
@@ -200,6 +205,7 @@ public class DataLoader implements CommandLineRunner {
         book2.setBookName("Sineklerin Tanrısı");
         book2.setBookPage(260);
         book2.getAuthorSet().add(author1);
+        book2.getBookCommentList().add(comment1);
         book2.setBookPoint(8.6);
 
         bookRepository.save(book2);
@@ -210,6 +216,7 @@ public class DataLoader implements CommandLineRunner {
         book3.getAuthorSet().add(author1);
         book3.setBookPoint(7.4);
         book3.setThumbnail(stringImg);
+        book3.getBookCommentList().add(comment2);
 
         bookRepository.save(book3);
 
@@ -218,6 +225,7 @@ public class DataLoader implements CommandLineRunner {
         book4.setBookPage(260);
         book4.getAuthorSet().add(author1);
         book4.setBookPoint(9.9);
+        book4.getBookCommentList().add(comment1);
 
         bookRepository.save(book4);
 
@@ -227,6 +235,7 @@ public class DataLoader implements CommandLineRunner {
         book5.getAuthorSet().add(author3);
         book5.setBookPoint(3.2);
         book5.setThumbnail(stringImg);
+        book5.getBookCommentList().add(comment2);
 
         bookRepository.save(book5);
         i1.close();
