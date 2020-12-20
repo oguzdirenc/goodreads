@@ -38,6 +38,8 @@ public class DataLoader implements CommandLineRunner {
         byte[] byteImg = i1.readAllBytes();
         String stringImg = Base64.getEncoder().encodeToString(byteImg);
 
+
+
         Actor actor1 =new Actor();
         actor1.setActorName("Bryan Cranston");
 
@@ -47,6 +49,7 @@ public class DataLoader implements CommandLineRunner {
         movie1.setMovieName("TENET");
 
         movieRepository.save(movie1);
+
         Comment comment1 = new Comment();
         comment1.setDescription("Bok gibi film");
         comment1.setMovie(movie1);
@@ -160,7 +163,6 @@ public class DataLoader implements CommandLineRunner {
         book1.setBookPage(260);
         book1.getAuthorSet().add(author1);
         book1.setBookPoint(9.9);
-        book1.getBookCommentList().add(comment1);
 
         bookRepository.save(book1);
 
@@ -202,30 +204,27 @@ public class DataLoader implements CommandLineRunner {
         commentRepository.save(comment2);
 
         Book book2 = new Book();
-        book2.setBookName("Sineklerin Tanrısı");
+        book2.setBookName("Sineklerjhgin Tanrısı");
         book2.setBookPage(260);
         book2.getAuthorSet().add(author1);
-        book2.getBookCommentList().add(comment1);
         book2.setBookPoint(8.6);
 
         bookRepository.save(book2);
 
         Book book3 = new Book();
-        book3.setBookName("Sineklerin Tanrısı");
+        book3.setBookName("Sinekleporin Tanrısı");
         book3.setBookPage(260);
         book3.getAuthorSet().add(author1);
         book3.setBookPoint(7.4);
         book3.setThumbnail(stringImg);
-        book3.getBookCommentList().add(comment2);
 
         bookRepository.save(book3);
 
         Book book4 = new Book();
-        book4.setBookName("Sineklerin Tanrısı");
+        book4.setBookName("Sineklerin Tanrhhısı");
         book4.setBookPage(260);
         book4.getAuthorSet().add(author1);
         book4.setBookPoint(9.9);
-        book4.getBookCommentList().add(comment1);
 
         bookRepository.save(book4);
 
@@ -235,9 +234,26 @@ public class DataLoader implements CommandLineRunner {
         book5.getAuthorSet().add(author3);
         book5.setBookPoint(3.2);
         book5.setThumbnail(stringImg);
-        book5.getBookCommentList().add(comment2);
 
         bookRepository.save(book5);
         i1.close();
+
+        Comment comment3 = new Comment();
+        comment3.setDescription("Bok gibiasf film");
+        comment3.setBook(book1);
+
+        commentRepository.save(comment3);
+
+        Comment comment4 = new Comment();
+        comment4.setDescription("Bok gibi dsafilm");
+        comment4.setBook(book2);
+        commentRepository.save(comment1);
+
+        Comment comment5 = new Comment();
+        comment5.setDescription("Bok gibi film");
+        comment5.setBook(book3);
+        commentRepository.save(comment1);
+
+
     }
 }
