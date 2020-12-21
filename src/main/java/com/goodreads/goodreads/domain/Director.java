@@ -20,6 +20,7 @@ public class Director {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long directorId;
     private String directorName;
+    private String directorFirstName;
 
     @ManyToMany(cascade = CascadeType.ALL,mappedBy = "directorSet")
     private Set<Movie> movieSet =new HashSet<Movie>();

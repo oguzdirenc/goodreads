@@ -16,21 +16,45 @@
 <div th:replace="fragments/navigation :: navigation"></div>
 
 
+<div class="container">
+    <div class="row">
 
-<tr th:each="movie : ${Movies}">
+        <div class="col-md-3">
 
-    <td th:text="${movie.movieName}"></td>
+            <div class="accordion " id="accordionExample" th:each="director : ${Director}">
 
-    <td th:text="${movie.director}"></td>
+                <div class="accordion-item "  >
 
-</tr>
-<tr th:each="last4Movie : ${Last4Movies}"><h1>
+                    <h2 class="accordion-header " id="headingOne" >
 
-    <td th:text="${last4Movie.movieName}"></td>
+                        <button class="accordion-button collapsed accordion-item-font" type="button" data-bs-toggle="collapse"
+                                th:data-bs-target="'#'+${director.directorFirstName}" aria-expanded="false"
+                                aria-controls="collapseTwo" th:text="${director.directorName}">
+                        </button>
+                    </h2>
 
-</h1>
+                    <tr th:each="movie:${director.getMovieSet()}">
 
-</tr>
+                        <div th:id="${director.directorFirstName}" class="accordion-collapse collapse " aria-labelledby="headingOne"
+                             data-bs-parent="#accordionExample" >
+
+                            <div class="accordion-body accordion-item-font" th:text="'-'+${movie.movieName}"></div>
+
+                        </div>
+                    </tr>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"

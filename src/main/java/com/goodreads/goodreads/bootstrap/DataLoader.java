@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Base64;
+import java.util.Set;
 
 
 @Component
@@ -21,6 +22,7 @@ public class DataLoader implements CommandLineRunner {
     private final AuthorRepository authorRepository;
     private final ActorRepository actorRepository;
     private final TvSeriesRepository tvSeriesRepository;
+    private final DirectorRepository directorRepository;
 
     InputStream i1 = DataLoader.class.getResourceAsStream("/books/sineklerintanrisi.jpg");
 
@@ -38,14 +40,27 @@ public class DataLoader implements CommandLineRunner {
         byte[] byteImg = i1.readAllBytes();
         String stringImg = Base64.getEncoder().encodeToString(byteImg);
 
+        Director director1 = new Director();
+        director1.setDirectorName("Nolan");
+        director1.setDirectorFirstName("Cristopher");
+        directorRepository.save(director1);
 
+        Director director2 = new Director();
+        director2.setDirectorName("Alfonso Gomez-Rejon");
+        director2.setDirectorFirstName("Alfonso");
+        directorRepository.save(director2);
+
+        Director director3 = new Director();
+        director3.setDirectorName("Oguz Direnc Dinc");
+        director3.setDirectorFirstName("Oguz");
+        directorRepository.save(director3);
 
         Actor actor1 =new Actor();
         actor1.setActorName("Bryan Cranston");
 
         Movie movie1 = new Movie();
-        movie1.setDirector("Onurcan Kurt");
         movie1.setImdb(1l);
+        movie1.getDirectorSet().add(director1);
         movie1.setMovieName("TENET");
 
         movieRepository.save(movie1);
@@ -169,28 +184,28 @@ public class DataLoader implements CommandLineRunner {
 
 
         Movie movie2 = new Movie();
-        movie2.setDirector("Onurcan ");
+        movie2.getDirectorSet().add(director1);
         movie2.setImdb(1l);
         movie2.setMovieName("TENET");
 
         movieRepository.save(movie2);
 
         Movie movie3 = new Movie();
-        movie3.setDirector("Kurt");
+        movie3.getDirectorSet().add(director3);
         movie3.setImdb(1l);
         movie3.setMovieName("TENET");
 
         movieRepository.save(movie3);
 
         Movie movie4 = new Movie();
-        movie4.setDirector("Onurcan Kurt");
+        movie4.getDirectorSet().add(director2);
         movie4.setImdb(1l);
         movie4.setMovieName("TENEEEEEE");
 
         movieRepository.save(movie4);
 
         Movie movie5 = new Movie();
-        movie5.setDirector("Onurcan Kurt");
+        movie5.getDirectorSet().add(director3);
         movie5.setImdb(1l);
         movie5.setMovieName("TENTET");
 
