@@ -8,4 +8,5 @@ public interface BookService {
 
     List<Book> findAllBooks();
     List<Book> getLast4Book();
+    List<Book> top5Book();
 }

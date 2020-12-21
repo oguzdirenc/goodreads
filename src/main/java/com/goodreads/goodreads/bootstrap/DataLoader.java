@@ -247,12 +247,12 @@ public class DataLoader implements CommandLineRunner {
         Comment comment4 = new Comment();
         comment4.setDescription("Bok gibi dsafilm");
         comment4.setBook(book2);
-        commentRepository.save(comment1);
+        commentRepository.save(comment4);
 
         Comment comment5 = new Comment();
         comment5.setDescription("Bok gibi film");
         comment5.setBook(book3);
-        commentRepository.save(comment1);
+        commentRepository.save(comment5);
 
 
     }

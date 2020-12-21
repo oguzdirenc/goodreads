@@ -19,6 +19,7 @@ public class BookController {
     public String getBooks(Model model){
         model.addAttribute("Books",bookService.findAllBooks());
         model.addAttribute("Authors",authorService.getAuthorsByName());
+        model.addAttribute("TopList",bookService.top5Book());
 
         return "book/books";
     }
