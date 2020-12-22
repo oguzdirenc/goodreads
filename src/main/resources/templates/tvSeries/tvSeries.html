@@ -47,6 +47,30 @@
         </div>
 
 
+        <div class="col-md-6 card my-tvSeries-card" style="max-width: 540px;">
+
+            <tr th:each="tvSeries : ${TvSeries}">
+
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="..." alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${tvSeries.tvSeriesName}"></h5>
+                            <p class="card-text"><small class="text-muted" th:text="${tvSeries.imdb}"></small></p>
+                            <p class="card-text" th:each="comment : ${tvSeries.getTvSeriesCommentList()}" th:text="${comment.description}"></p>
+                            <p class="card-text"><small class="text-muted" th:each="actor : ${tvSeries.getTvSeriesActorSet()}"
+                                                        th:text="${actor.actorName}"></small></p>
+                        </div>
+                    </div>
+                </div>
+
+            </tr>
+
+        </div>
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
