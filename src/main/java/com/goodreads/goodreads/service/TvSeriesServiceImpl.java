@@ -36,4 +36,20 @@ public class TvSeriesServiceImpl implements TvSeriesService {
         }
         return last4TvSeries;
     }
+
+    @Override
+    public List<TvSeries> getTop5TvSeries() {
+
+        List<TvSeries> topTvSeriesList = new ArrayList<>();
+        List<TvSeries> top5TvSeries =tvSeriesRepository.getTop5TvSeries();
+
+        if(top5TvSeries.size()>=5){
+            for (int i=0;i<5;i++){
+                topTvSeriesList.add(top5TvSeries.get(i));
+            }
+            return topTvSeriesList;
+        }
+
+        return top5TvSeries;
+    }
 }

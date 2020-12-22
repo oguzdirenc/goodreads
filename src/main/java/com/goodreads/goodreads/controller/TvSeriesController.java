@@ -20,6 +20,7 @@ public class TvSeriesController {
 
         model.addAttribute("TvSeries",tvSeriesService.findAllTvSeries());
         model.addAttribute("Director",directorService.getDirectorOrderByName());
+        model.addAttribute("Top5List",tvSeriesService.getTop5TvSeries());
 
         return "tvSeries/tvSeries";
     }
