@@ -37,5 +37,21 @@ public class MovieServiceImpl implements MovieService {
         return last4Movie;
     }
 
+    @Override
+    public List<Movie> top5Movie() {
+
+        List<Movie> topMovieList =new ArrayList<>();
+        List<Movie> top5Movie = movieRepository.top5Movie();
+
+        if (top5Movie.size() >=5){
+            for (int i=0;i<5;i++){
+                topMovieList.add(top5Movie.get(i));
+            }
+            return topMovieList;
+        }
+
+        return top5Movie;
+    }
+
 
 }

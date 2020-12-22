@@ -7,4 +7,5 @@ import java.util.List;
 public interface MovieService {
     List<Movie> findAllMovies();
     List<Movie> getLast4Movie();
+    List<Movie> top5Movie();
 }

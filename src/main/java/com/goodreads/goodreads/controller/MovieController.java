@@ -19,6 +19,7 @@ public class MovieController {
     public String getMovies(Model model){
     model.addAttribute("Movies",movieService.findAllMovies());
     model.addAttribute("Director",directorService.getDirectorOrderByName());
+    model.addAttribute("Top5List",movieService.top5Movie());
 
     return "/movie/movies";
     }
