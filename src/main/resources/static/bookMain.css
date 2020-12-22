@@ -1,3 +1,8 @@
+body{
+    background-image: url("https://image.freepik.com/free-photo/book-library-room_36325-102.jpg");
+    background-repeat: no-repeat;
+    background-size: cover
+}
 .accordion-item-font{
     font-family: "Times New Roman";
     font-size: small;
