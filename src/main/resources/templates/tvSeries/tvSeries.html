@@ -14,25 +14,38 @@
 
 <div th:replace="fragments/navigation :: navigation"></div>
 
+<div class="container">
 
-<tr th:each="tvSeries : ${TvSeries}">
+    <div class="row">
+        <div class="col-md-3">
 
-    <td th:text="${tvSeries.tvSeriesName}"></td>
+            <div class="accordion " id="accordionExample" th:each="director:${Director}">
 
-    <td th:text="${tvSeries.over}"></td>
+                <div class="accordion-item "  >
 
-    <td th:text="${tvSeries.imdb}"></td>
+                    <h2 class="accordion-header " id="headingOne" >
 
-    <td><span th:each="actor : ${tvSeries.getTvSeriesActorSet()}"
-              th:text="${actor.actorName}" /> </span></td>
+                        <button class="accordion-button collapsed accordion-item-font" type="button" data-bs-toggle="collapse"
+                                th:data-bs-target="'#'+${director.directorFirstName}" aria-expanded="false" aria-controls="collapseTwo" th:text="${director.directorName}">
+                        </button>
+                    </h2>
 
-</tr>
-<tr th:each="last4TvSeries : ${Last4TvSeries}"><h1>
+                    <tr th:each="tvSeries:${director.getTvSeriesSet()}">
 
-    <td th:text="${last4TvSeries.tvSeriesName}"></td>
+                        <div th:id="${director.directorFirstName}" class="accordion-collapse collapse " aria-labelledby="headingOne"
+                             data-bs-parent="#accordionExample" >
 
-    </h1>
-</tr>
+                            <div class="accordion-body accordion-item-font" th:text="'-'+${tvSeries.tvSeriesName}"></div>
+
+                        </div>
+                    </tr>
+
+                </div>
+            </div>
+        </div>
+
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"

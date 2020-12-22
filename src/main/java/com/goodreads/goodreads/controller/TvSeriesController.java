@@ -1,6 +1,7 @@
 package com.goodreads.goodreads.controller;
 
 import com.goodreads.goodreads.domain.TvSeries;
+import com.goodreads.goodreads.service.DirectorService;
 import com.goodreads.goodreads.service.TvSeriesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -12,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TvSeriesController {
 
     private final TvSeriesService tvSeriesService;
+    private final DirectorService directorService;
 
     @RequestMapping({"/tvSeries/tvSeries","/tvSeries"})
     public String getTvSeries(Model model){
+
         model.addAttribute("TvSeries",tvSeriesService.findAllTvSeries());
-        model.addAttribute("Last4TvSeries",tvSeriesService.getLast4TvSeries());
-       // for(TvSeries t:tvSeriesService.getLast4TvSeries()){
-         //   System.out.println(t.getTvSeriesName());
-        //}
+        model.addAttribute("Director",directorService.getDirectorOrderByName());
+
         return "tvSeries/tvSeries";
     }
 }

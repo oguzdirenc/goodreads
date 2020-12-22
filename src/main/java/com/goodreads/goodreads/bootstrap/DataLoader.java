@@ -79,6 +79,7 @@ public class DataLoader implements CommandLineRunner {
         tvSeries1.setImdb(9.8);
         tvSeries1.setOver(true);
         tvSeries1.setTvSeriesSeason(9);
+        tvSeries1.getTvSeriesDirectorSet().add(director1);
         tvSeries1.getTvSeriesActorSet().add(actor1);
 
         tvSeriesRepository.save(tvSeries1);
@@ -93,6 +94,7 @@ public class DataLoader implements CommandLineRunner {
         tvSeries2.setImdb(9.8);
         tvSeries2.setOver(true);
         tvSeries2.setTvSeriesSeason(9);
+        tvSeries2.getTvSeriesDirectorSet().add(director2);
         tvSeries2.getTvSeriesActorSet().add(actor2);
 
         tvSeriesRepository.save(tvSeries2);
@@ -107,6 +109,7 @@ public class DataLoader implements CommandLineRunner {
         tvSeries3.setImdb(9.8);
         tvSeries3.setOver(true);
         tvSeries3.setTvSeriesSeason(9);
+        tvSeries3.getTvSeriesDirectorSet().add(director3);
         tvSeries3.getTvSeriesActorSet().add(actor3);
 
         tvSeriesRepository.save(tvSeries3);
@@ -121,6 +124,7 @@ public class DataLoader implements CommandLineRunner {
         tvSeries4.setImdb(9.8);
         tvSeries4.setOver(true);
         tvSeries4.setTvSeriesSeason(9);
+        tvSeries4.getTvSeriesDirectorSet().add(director1);
         tvSeries4.getTvSeriesActorSet().add(actor4);
 
         tvSeriesRepository.save(tvSeries4);
@@ -135,6 +139,7 @@ public class DataLoader implements CommandLineRunner {
         tvSeries5.setImdb(9.8);
         tvSeries5.setOver(true);
         tvSeries5.setTvSeriesSeason(9);
+        tvSeries5.getTvSeriesDirectorSet().add(director2);
         tvSeries5.getTvSeriesActorSet().add(actor5);
 
         tvSeriesRepository.save(tvSeries5);
