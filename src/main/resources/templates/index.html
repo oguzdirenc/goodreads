@@ -31,7 +31,7 @@
                         <h5 class="card-title" th:text="${book.bookName}"></h5>
                         <p class="card-text" th:each="author : ${book.getAuthorSet()}"
                            th:text="${author.authorName}" ></p>
-                        <a href="#" class="card-link my-card-link all-card-link">About</a>
+                        <a th:href="'/book/show/' + ${book.bookId}" class="card-link my-card-link all-card-link">About</a>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                         <h5 class="card-title" th:text="${tvSeries.tvSeriesName}"></h5>
                         <p class="card-text" th:each="actor : ${tvSeries.getTvSeriesActorSet()}"
                            th:text="${actor.actorName}" ></p>
-                        <a href="#" class="card-link my-card-link all-card-link">About</a>
+                        <a href="#"  class="card-link my-card-link all-card-link">About</a>
                     </div>
                 </div>
             </div>

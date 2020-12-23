@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -47,5 +48,19 @@ public class BookServiceImpl implements BookService {
             return bookList;
         }
         return top5Book;
+    }
+
+    public Book findById(Long id) {
+
+        Optional<Book> book = bookRepository.findById(id);
+
+        Book book1 = bookRepository.getOne(1L);
+        Book book2;
+
+        if(book.isEmpty() ==true){
+            return book1;
+        }
+        book2 =book.get();
+        return book2;
     }
 }
