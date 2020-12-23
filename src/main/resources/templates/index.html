@@ -71,7 +71,7 @@
                         <h5 class="card-title" th:text="${tvSeries.tvSeriesName}"></h5>
                         <p class="card-text" th:each="actor : ${tvSeries.getTvSeriesActorSet()}"
                            th:text="${actor.actorName}" ></p>
-                        <a href="#"  class="card-link my-card-link all-card-link">About</a>
+                        <a th:href="'/tvSeries/show/' + ${tvSeries.tvSeriesId}"  class="card-link my-card-link all-card-link">About</a>
                     </div>
                 </div>
             </div>

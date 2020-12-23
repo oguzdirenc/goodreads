@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -51,5 +52,20 @@ public class TvSeriesServiceImpl implements TvSeriesService {
         }
 
         return top5TvSeries;
+    }
+
+    @Override
+    public TvSeries findById(Long id) {
+
+        Optional<TvSeries> tvSeries = tvSeriesRepository.findById(id);
+
+        TvSeries tvSeries1 = tvSeriesRepository.getOne(1L);
+
+        if(tvSeries.isEmpty()==true){
+            return tvSeries1;
+        }
+
+        TvSeries tvSeries2 = tvSeries.get();
+        return tvSeries2;
     }
 }

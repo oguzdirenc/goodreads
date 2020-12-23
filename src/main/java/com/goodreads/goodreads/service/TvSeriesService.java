@@ -8,4 +8,5 @@ public interface TvSeriesService {
     List<TvSeries> findAllTvSeries();
     List<TvSeries> getLast4TvSeries();
     List<TvSeries> getTop5TvSeries();
+    TvSeries findById(Long aLong);
 }
