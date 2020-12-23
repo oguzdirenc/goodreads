@@ -37,7 +37,8 @@
                         <div th:id="${director.directorFirstName}" class="accordion-collapse collapse " aria-labelledby="headingOne"
                              data-bs-parent="#accordionExample" >
 
-                            <div class="accordion-body accordion-item-font" th:text="'-'+${tvSeries.tvSeriesName}"></div>
+                            <a th:href="'/tvSeries/show/' + ${tvSeries.tvSeriesId}"
+                               class="accordion-body accordion-item-font" th:text="'-'+${tvSeries.tvSeriesName}"></a>
 
                         </div>
                     </tr>
@@ -62,6 +63,7 @@
                             <p class="card-text" th:each="comment : ${tvSeries.getTvSeriesCommentList()}" th:text="${comment.description}"></p>
                             <p class="card-text"><small class="text-muted" th:each="actor : ${tvSeries.getTvSeriesActorSet()}"
                                                         th:text="${actor.actorName}"></small></p>
+                            <a th:href="'/tvSeries/show/' + ${tvSeries.tvSeriesId}">more >></a>
                         </div>
                     </div>
                 </div>
@@ -72,7 +74,8 @@
 
         <div class="list-group col-md-3 my-tvSeries-card top5-list-font" >
             <tr th:each="topTvSeries : ${Top5List}">
-                <a href="#" class="list-group-item list-group-item-action " th:text="${topTvSeries.tvSeriesName}"></a>
+                <a th:href="'/tvSeries/show/' + ${topTvSeries.tvSeriesId}"
+                   class="list-group-item list-group-item-action " th:text="${topTvSeries.tvSeriesName}"></a>
             </tr>
         </div>
 
