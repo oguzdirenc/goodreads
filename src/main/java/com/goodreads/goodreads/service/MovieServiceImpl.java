@@ -1,5 +1,6 @@
 package com.goodreads.goodreads.service;
 
+import com.goodreads.goodreads.domain.Book;
 import com.goodreads.goodreads.domain.Movie;
 import com.goodreads.goodreads.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -51,6 +53,20 @@ public class MovieServiceImpl implements MovieService {
         }
 
         return top5Movie;
+    }
+
+    @Override
+    public Movie findById(Long id) {
+
+        Optional<Movie> movie = movieRepository.findById(id);
+
+        Movie movie1 =movieRepository.getOne(1l);
+
+        if(movie.isEmpty()==true){
+            return movie1;
+        }
+        Movie movie2 = movie.get();
+        return movie2;
     }
 
 

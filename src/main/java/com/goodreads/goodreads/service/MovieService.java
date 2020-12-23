@@ -8,4 +8,5 @@ public interface MovieService {
     List<Movie> findAllMovies();
     List<Movie> getLast4Movie();
     List<Movie> top5Movie();
+    Movie findById(Long aLong);
 }
