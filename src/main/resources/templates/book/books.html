@@ -40,7 +40,7 @@
                     <div th:id="${author.authorFirstName}" class="accordion-collapse collapse " aria-labelledby="headingOne"
                          data-bs-parent="#accordionExample" >
 
-                        <div class="accordion-body accordion-item-font" th:text="'-'+${book.bookName}"></div>
+                        <a th:href="'/book/show/' + ${book.bookId}" class="accordion-body accordion-item-font" th:text="'-'+${book.bookName}"></a>
 
                     </div>
                 </tr>
