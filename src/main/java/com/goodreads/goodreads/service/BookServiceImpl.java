@@ -1,14 +1,12 @@
 package com.goodreads.goodreads.service;
 
 import com.goodreads.goodreads.command.BookCommand;
-import com.goodreads.goodreads.domain.Author;
-import com.goodreads.goodreads.domain.Book;
-import com.goodreads.goodreads.repository.AuthorRepository;
-import com.goodreads.goodreads.repository.BookRepository;
+import com.goodreads.goodreads.domain.*;
+import com.goodreads.goodreads.repository.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +18,9 @@ public class BookServiceImpl implements BookService {
 
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
+    private final CommentRepository commentRepository;
+    private final PublisherRepository publisherRepository;
+    private final TypeRepository typeRepository;
 
     @Override
     public List<Book> findAllBooks() {
@@ -74,12 +75,32 @@ public class BookServiceImpl implements BookService {
 
         Book book =new Book();
 
+        book.setBookName(bookCommand.getBookName());
+        book.setBookPage(bookCommand.getBookPage());
+        book.setBookPoint(bookCommand.getBookPoint());
+        book.setBookUpdateDate(LocalDate.now());
+
         Author author =new Author();
         author.setAuthorName(bookCommand.getAuthorName());
         authorRepository.save(author);
         book.getAuthorSet().add(author);
 
+        Comment comment = new Comment();
+        comment.setDescription(bookCommand.getCommentDescription());
+        commentRepository.save(comment);
+        book.getBookCommentList().add(comment);
 
+        Publisher publisher = new Publisher();
+        publisher.setPublisherName(bookCommand.getPublisherName());
+        publisherRepository.save(publisher);
+        book.getPublisherSet().add(publisher);
+
+        Type type = new Type();
+        type.setTypeName(bookCommand.getType());
+        typeRepository.save(type);
+        book.getTypeSet().add(type);
+
+        bookRepository.save(book);
 
     }
 }

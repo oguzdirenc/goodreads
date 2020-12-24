@@ -47,8 +47,8 @@ public class BookController {
 
     @PostMapping("/addBook")
     public String saveBook(@ModelAttribute BookCommand bookCommand){
-        System.out.println(bookCommand.getBookName());
-        System.out.println(bookCommand.getAuthorName());
+
+        bookService.saveBook(bookCommand);
 
     return "redirect:/index";
     }
