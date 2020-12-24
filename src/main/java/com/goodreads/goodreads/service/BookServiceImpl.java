@@ -1,8 +1,12 @@
 package com.goodreads.goodreads.service;
 
+import com.goodreads.goodreads.command.BookCommand;
+import com.goodreads.goodreads.domain.Author;
 import com.goodreads.goodreads.domain.Book;
+import com.goodreads.goodreads.repository.AuthorRepository;
 import com.goodreads.goodreads.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,6 +17,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
 
+
+    private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
 
     @Override
@@ -62,5 +68,18 @@ public class BookServiceImpl implements BookService {
         }
         book2 =book.get();
         return book2;
+    }
+
+    public void saveBook(BookCommand bookCommand){
+
+        Book book =new Book();
+
+        Author author =new Author();
+        author.setAuthorName(bookCommand.getAuthorName());
+        authorRepository.save(author);
+        book.getAuthorSet().add(author);
+
+
+
     }
 }

@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+          crossorigin="anonymous">
+
     <meta charset="UTF-8">
     <title>New BOOK</title>
 </head>
 <body>
 
+<form  th:object="${bookCommand}"  th:action="@{/book/addBook}"  method="post">
+
+    <input type="hidden" th:field="*{bookId}"/>
+
+    <div class="col-md-3 form-group">
+        <label>Book Name</label>
+        <input type="text" class="form-control" th:field="*{bookName}"/>
+    </div>
+
+    <div class="col-md-3 form-group">
+        <label>Book Page</label>
+        <input type="text" class="form-control" th:field="*{bookPage}"/>
+    </div>
+
+    <div class="col-md-3 form-group">
+        <label>Category</label>
+        <input type="text" class="form-control" th:field="*{type}"/>
+    </div>
+
+    <div class="col-md-3 form-group">
+        <label>Book Point</label>
+        <input type="text" class="form-control" th:field="*{bookPoint}"/>
+    </div>
+
+    <div class="col-md-3 form-group">
+        <label>Author Name:</label>
+        <input type="text" class="form-control" th:field="*{authorName}"/>
+    </div>
+
+    <div class="col-md-3 form-group">
+        <label>Publisher Name</label>
+        <input type="text" class="form-control" th:field="*{publisherName}"/>
+    </div>
+
+    <div class="col-md-3 form-group">
+        <label>Comment</label>
+        <input type="text" class="form-control" th:field="*{commentDescription}"/>
+    </div>
+
+
+    <button type="submit" class="btn btn-secondary">Submit</button>
+
+
+</form>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+crossorigin="anonymous"></script >
 </body>
 </html>
