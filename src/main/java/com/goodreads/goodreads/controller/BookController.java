@@ -1,13 +1,18 @@
 package com.goodreads.goodreads.controller;
 
 import com.goodreads.goodreads.command.BookCommand;
-import com.goodreads.goodreads.domain.*;
 import com.goodreads.goodreads.service.AuthorService;
 import com.goodreads.goodreads.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -46,10 +51,22 @@ public class BookController {
 
 
     @PostMapping("/addBook")
-    public String saveBook(@ModelAttribute BookCommand bookCommand){
+    public String saveBook(@Valid @ModelAttribute BookCommand bookCommand, BindingResult bindingResult,Model model){
 
-        bookService.saveBook(bookCommand);
+        if(bindingResult.hasErrors()){
 
-    return "redirect:/index";
+            List<String> errors = new ArrayList<>();
+
+            for (Object object : bindingResult.getFieldErrors()){
+                FieldError fieldError = (FieldError)object;
+                errors.add(fieldError.getDefaultMessage());
+            }
+            model.addAttribute("errors",errors);
+
+            return "book/addBook";
+        }else {
+            bookService.saveBook(bookCommand);
+            return "redirect:/index";
+        }
     }
 }

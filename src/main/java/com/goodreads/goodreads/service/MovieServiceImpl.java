@@ -1,11 +1,12 @@
 package com.goodreads.goodreads.service;
 
-import com.goodreads.goodreads.domain.Book;
-import com.goodreads.goodreads.domain.Movie;
-import com.goodreads.goodreads.repository.MovieRepository;
+import com.goodreads.goodreads.command.MovieCommand;
+import com.goodreads.goodreads.domain.*;
+import com.goodreads.goodreads.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +16,10 @@ import java.util.Optional;
 public class MovieServiceImpl implements MovieService {
 
     private final MovieRepository movieRepository;
-
+    private final CommentRepository commentRepository;
+    private final TypeRepository typeRepository;
+    private final DirectorRepository directorRepository;
+    private final ActorRepository actorRepository;
 
     @Override
     public List<Movie> findAllMovies() {
@@ -67,6 +71,39 @@ public class MovieServiceImpl implements MovieService {
         }
         Movie movie2 = movie.get();
         return movie2;
+    }
+
+    @Override
+    public void saveMovie(MovieCommand movieCommand) {
+
+        Movie movie = new Movie();
+
+        movie.setMovieName(movieCommand.getMovieName());
+        movie.setImdb(movieCommand.getImdb());
+        movie.setMovieUpdateDate(LocalDate.now());
+
+        Comment comment = new Comment();
+        comment.setDescription(movieCommand.getCommentDescription());
+        commentRepository.save(comment);
+        movie.getCommentList().add(comment);
+
+        Type type = new Type();
+        type.setTypeName(movieCommand.getType());
+        typeRepository.save(type);
+        movie.getMovieTypeSet().add(type);
+
+        Director director = new Director();
+        director.setDirectorName(movieCommand.getDirectorName());
+        directorRepository.save(director);
+        movie.getDirectorSet().add(director);
+
+        Actor actor = new Actor();
+        actor.setActorName(movieCommand.getActorName());
+        actorRepository.save(actor);
+        movie.getActorSet().add(actor);
+
+        movieRepository.save(movie);
+
     }
 
 
