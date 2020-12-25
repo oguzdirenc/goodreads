@@ -13,7 +13,7 @@ public class MovieCommand {
 
     private Long movieId;
     private String movieName;
-    private Long imdb;
+    private double imdb;
     private LocalDate movieUpdateDate;
 
     private String commentDescription;

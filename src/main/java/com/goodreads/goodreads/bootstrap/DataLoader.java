@@ -60,7 +60,7 @@ public class DataLoader implements CommandLineRunner {
         actorRepository.save(actor1);
 
         Movie movie1 = new Movie();
-        movie1.setImdb(1l);
+        movie1.setImdb(9.8);
         movie1.getDirectorSet().add(director1);
         movie1.getActorSet().add(actor1);
         movie1.setMovieName("TENET");
@@ -91,7 +91,7 @@ public class DataLoader implements CommandLineRunner {
 
         TvSeries tvSeries2 = new TvSeries();
         tvSeries2.setTvSeriesName("Brea222ing Bad");
-        tvSeries2.setImdb(9.8);
+        tvSeries2.setImdb(9.4);
         tvSeries2.setOver(true);
         tvSeries2.setTvSeriesSeason(9);
         tvSeries2.getTvSeriesDirectorSet().add(director2);
@@ -106,7 +106,7 @@ public class DataLoader implements CommandLineRunner {
 
         TvSeries tvSeries3 = new TvSeries();
         tvSeries3.setTvSeriesName("Bad");
-        tvSeries3.setImdb(9.8);
+        tvSeries3.setImdb(9.5);
         tvSeries3.setOver(true);
         tvSeries3.setTvSeriesSeason(9);
         tvSeries3.getTvSeriesDirectorSet().add(director3);
@@ -121,7 +121,7 @@ public class DataLoader implements CommandLineRunner {
 
         TvSeries tvSeries4 = new TvSeries();
         tvSeries4.setTvSeriesName("Breaking");
-        tvSeries4.setImdb(9.8);
+        tvSeries4.setImdb(9.1);
         tvSeries4.setOver(true);
         tvSeries4.setTvSeriesSeason(9);
         tvSeries4.getTvSeriesDirectorSet().add(director1);
@@ -136,7 +136,7 @@ public class DataLoader implements CommandLineRunner {
 
         TvSeries tvSeries5 = new TvSeries();
         tvSeries5.setTvSeriesName("Brwefeaking Bad");
-        tvSeries5.setImdb(9.8);
+        tvSeries5.setImdb(9.9);
         tvSeries5.setOver(true);
         tvSeries5.setTvSeriesSeason(9);
         tvSeries5.getTvSeriesDirectorSet().add(director2);
@@ -191,7 +191,7 @@ public class DataLoader implements CommandLineRunner {
 
         Movie movie2 = new Movie();
         movie2.getDirectorSet().add(director1);
-        movie2.setImdb(1l);
+        movie2.setImdb(7.3);
         movie1.getActorSet().add(actor1);
         movie2.setMovieName("TENET");
 
@@ -199,7 +199,7 @@ public class DataLoader implements CommandLineRunner {
 
         Movie movie3 = new Movie();
         movie3.getDirectorSet().add(director3);
-        movie3.setImdb(1l);
+        movie3.setImdb(8.5);
         movie3.getActorSet().add(actor3);
         movie3.setMovieName("TENET");
 
@@ -207,7 +207,7 @@ public class DataLoader implements CommandLineRunner {
 
         Movie movie4 = new Movie();
         movie4.getDirectorSet().add(director2);
-        movie4.setImdb(1l);
+        movie4.setImdb(9.9);
         movie4.getActorSet().add(actor5);
         movie4.getActorSet().add(actor2);
         movie4.setMovieName("TENEEEEEE");
@@ -216,7 +216,7 @@ public class DataLoader implements CommandLineRunner {
 
         Movie movie5 = new Movie();
         movie5.getDirectorSet().add(director3);
-        movie5.setImdb(1l);
+        movie5.setImdb(8.9);
         movie5.getActorSet().add(actor3);
         movie5.setMovieName("TENTET");
 

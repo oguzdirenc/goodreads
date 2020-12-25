@@ -1,11 +1,13 @@
 package com.goodreads.goodreads.service;
 
-import com.goodreads.goodreads.domain.TvSeries;
-import com.goodreads.goodreads.repository.TvSeriesRepository;
+import com.goodreads.goodreads.command.TvSeriesCommand;
+import com.goodreads.goodreads.domain.*;
+import com.goodreads.goodreads.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +17,10 @@ import java.util.Optional;
 public class TvSeriesServiceImpl implements TvSeriesService {
 
     private final TvSeriesRepository tvSeriesRepository;
+    private final ActorRepository actorRepository;
+    private final DirectorRepository directorRepository;
+    private final CommentRepository commentRepository;
+    private final TypeRepository typeRepository;
 
     @Override
     public List<TvSeries> findAllTvSeries() {
@@ -67,5 +73,39 @@ public class TvSeriesServiceImpl implements TvSeriesService {
 
         TvSeries tvSeries2 = tvSeries.get();
         return tvSeries2;
+    }
+
+    @Override
+    public void saveTvSeries(TvSeriesCommand tvSeriesCommand) {
+
+        TvSeries tvSeries = new TvSeries();
+
+        Actor actor = new Actor();
+        actor.setActorName(tvSeriesCommand.getActorName());
+        actorRepository.save(actor);
+        tvSeries.getTvSeriesActorSet().add(actor);
+
+        Director director = new Director();
+        director.setDirectorName(tvSeriesCommand.getDirectorName());
+        directorRepository.save(director);
+        tvSeries.getTvSeriesDirectorSet().add(director);
+
+        Comment comment = new Comment();
+        comment.setDescription(tvSeriesCommand.getCommentDescription());
+        commentRepository.save(comment);
+        tvSeries.getTvSeriesCommentList().add(comment);
+
+        Type type = new Type();
+        type.setTypeName(tvSeriesCommand.getType());
+        typeRepository.save(type);
+        tvSeries.getTvSeriesTypeSet().add(type);
+
+        tvSeries.setTvSeriesSeason(tvSeriesCommand.getTvSeriesSeason());
+        tvSeries.setOver(tvSeriesCommand.isOver());
+        tvSeries.setImdb(tvSeriesCommand.getImdb());
+        tvSeries.setTvSeriesName(tvSeriesCommand.getTvSeriesName());
+        tvSeries.setTvSeriesUpdateDate(LocalDate.now());
+
+        tvSeriesRepository.save(tvSeries);
     }
 }

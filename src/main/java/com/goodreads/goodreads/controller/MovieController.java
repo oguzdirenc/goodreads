@@ -45,8 +45,8 @@ public class MovieController {
         return "/movie/addMovie";
     }
 
-    @PostMapping("/addBook")
-    public String saveMovie(@ModelAttribute MovieCommand movieCommand){
+    @PostMapping("/addMovie")
+    public String addMovie(@ModelAttribute MovieCommand movieCommand){
 
         movieService.saveMovie(movieCommand);
 

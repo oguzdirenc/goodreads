@@ -23,7 +23,7 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long movieId;
     private String movieName;
-    private Long imdb;
+    private double imdb;
     private LocalDate movieUpdateDate;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "movie")

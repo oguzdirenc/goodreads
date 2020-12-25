@@ -17,20 +17,38 @@
     <input type="hidden" th:field="*{movieId}"/>
 
     <div class="col-md-3 form-group">
-        <label>Book Name</label>
+        <label>Movie Name</label>
         <input type="text" class="form-control" th:field="*{movieName}"/>
     </div>
 
+    <div class="col-md-3 form-group">
+        <label>IMDB</label>
+        <input type="text" class="form-control" th:field="*{imdb}"/>
+    </div>
+
+    <div class="col-md-3 form-group">
+        <label>Comment</label>
+        <input type="text" class="form-control" th:field="*{commentDescription}"/>
+    </div>
+
+    <div class="col-md-3 form-group">
+        <label>Category</label>
+        <input type="text" class="form-control" th:field="*{type}"/>
+    </div>
+
+    <div class="col-md-3 form-group">
+        <label>Director</label>
+        <input type="text" class="form-control" th:field="*{directorName}"/>
+    </div>
+
+    <div class="col-md-3 form-group">
+        <label>Actor</label>
+        <input type="text" class="form-control" th:field="*{actorName}"/>
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Submit</button>
 
 </form>
-
-
-
-
-
-
-
-
 
 
 
