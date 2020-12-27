@@ -13,5 +13,5 @@ public interface BookService {
     List<Book> getLast4Book();
     List<Book> top5Book();
     Book findById(Long aLong);
-    void saveBook(BookCommand bookCommand, MultipartFile multipartFile) throws IOException;
+    void saveBook(BookCommand bookCommand,MultipartFile multipartFile) throws IOException;
 }

@@ -26,6 +26,9 @@ public class Movie {
     private double imdb;
     private LocalDate movieUpdateDate;
 
+    @Lob
+    private String thumbnail;
+
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "movie")
     private List<Comment> commentList = new ArrayList<>();
 

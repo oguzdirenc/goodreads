@@ -7,10 +7,10 @@ import com.goodreads.goodreads.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor
@@ -46,9 +46,10 @@ public class MovieController {
     }
 
     @PostMapping("/addMovie")
-    public String addMovie(@ModelAttribute MovieCommand movieCommand){
+    public String addMovie(@ModelAttribute MovieCommand movieCommand,
+                           @RequestParam("file")MultipartFile multipartFile) throws IOException {
 
-        movieService.saveMovie(movieCommand);
+        movieService.saveMovie(movieCommand,multipartFile);
 
         return "redirect:/index";
     }

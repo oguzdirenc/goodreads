@@ -3,6 +3,7 @@ package com.goodreads.goodreads.command;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 
@@ -20,5 +21,6 @@ public class MovieCommand {
     private String type;
     private String directorName;
     private String actorName;
+    private MultipartFile image;
 
 }

@@ -5,9 +5,12 @@ import com.goodreads.goodreads.domain.*;
 import com.goodreads.goodreads.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,7 +77,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public void saveMovie(MovieCommand movieCommand) {
+    public void saveMovie(MovieCommand movieCommand, MultipartFile multipartFile) throws IOException {
 
         Movie movie = new Movie();
 
@@ -101,6 +104,10 @@ public class MovieServiceImpl implements MovieService {
         actor.setActorName(movieCommand.getActorName());
         actorRepository.save(actor);
         movie.getActorSet().add(actor);
+
+        movieCommand.setImage(multipartFile);
+        String stringImage = Base64.getEncoder().encodeToString(movieCommand.getImage().getBytes());
+        movie.setThumbnail(stringImage);
 
         movieRepository.save(movie);
 

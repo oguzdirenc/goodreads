@@ -74,7 +74,7 @@ public class BookServiceImpl implements BookService {
         return book2;
     }
 
-    public void saveBook(BookCommand bookCommand, MultipartFile multipartFile) throws IOException {
+    public void saveBook(BookCommand bookCommand,MultipartFile multipartFile) throws IOException {
 
         Book book =new Book();
 
@@ -103,7 +103,8 @@ public class BookServiceImpl implements BookService {
         typeRepository.save(type);
         book.getTypeSet().add(type);
 
-        String imageString = Base64.getEncoder().encodeToString(multipartFile.getBytes());
+        bookCommand.setImage(multipartFile);
+        String imageString = Base64.getEncoder().encodeToString(bookCommand.getImage().getBytes());
         book.setThumbnail(imageString);
 
         bookRepository.save(book);

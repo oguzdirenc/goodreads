@@ -109,7 +109,8 @@ public class TvSeriesServiceImpl implements TvSeriesService {
         tvSeries.setTvSeriesName(tvSeriesCommand.getTvSeriesName());
         tvSeries.setTvSeriesUpdateDate(LocalDate.now());
 
-        String imageString = Base64.getEncoder().encodeToString(multipartFile.getBytes());
+        tvSeriesCommand.setImage(multipartFile);
+        String imageString = Base64.getEncoder().encodeToString(tvSeriesCommand.getImage().getBytes());
         tvSeries.setThumbnail(imageString);
 
         tvSeriesRepository.save(tvSeries);
