@@ -1,5 +1,5 @@
 body{
-    background-image: url("https://image.freepik.com/free-photo/book-library-room_36325-102.jpg");
+    background-color: #f3f7f7 !important;
     background-repeat: no-repeat;
     background-size: cover
 }
@@ -8,7 +8,16 @@ body{
 }
 .my-book-card{
     margin-left: 50px;
+
 }
 .top5-list-font{
     font-family: "Times New Roman";
+}
+.card-image-size{
+    width:170px ;
+    height: 270px;
+}
+.my-card-margin{
+    margin-top: 10px !important;
+    margin-bottom: 15px; !important;
 }

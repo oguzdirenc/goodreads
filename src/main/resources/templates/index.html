@@ -47,7 +47,7 @@
         <tr th:each="movie : ${Movies}">
             <div class="col-sm-3">
             <div class="card my-card " style="...">
-                    <img src="..." class="card-image" alt="...">
+                    <img th:src="'data:image/jpeg;base64,'+${movie.thumbnail}" class="card-image" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${movie.movieName}"></h5>
                         <p class="card-text" th:each="director : ${movie.getDirectorSet()}"
@@ -66,7 +66,7 @@
         <tr th:each="tvSeries : ${TvSeries}">
             <div class="col-sm-3">
             <div class="card my-card" style="...">
-                    <img src="..." class="card-image" alt="...">
+                    <img th:src="'data:image/jpeg;base64,'+${tvSeries.thumbnail}" class="card-image" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${tvSeries.tvSeriesName}"></h5>
                         <p class="card-text" th:each="actor : ${tvSeries.getTvSeriesActorSet()}"

@@ -1,5 +1,5 @@
 body{
-    background-image: url("https://cdn2.vectorstock.com/i/1000x1000/49/46/movie-theme-background-vector-224946.jpg");
+    background-color: #f3f7f7 !important;
     background-repeat: no-repeat;
     background-size: cover
 }
@@ -12,4 +12,8 @@ body{
 .accordion-item-font{
     font-family: "Times New Roman";
     font-size: small;
+}
+.my-card-image{
+    width:170px ;
+    height: 270px;
 }

@@ -52,15 +52,17 @@
 
 
 
-        <div class="col-md-6 card my-book-card" style="max-width: 540px;">
+        <div class="col-md-6  my-book-card" style="max-width: 540px;">
+    <tr  th:each="book : ${Books}">
 
-            <tr th:each="book : ${Books}">
 
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="..." alt="...">
+            <div class=" g-0 card my-card-margin">
+                <div class="row ">
+                <div class="col-md-4 ">
+                    <img class="card-image-size" th:src="'data:image/jpeg;base64,'+${book.thumbnail}"
+                         th:alt="${book.bookName}">
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${book.bookName}"></h5>
                         <p class="card-text"><small class="text-muted" th:text="${book.bookPoint}"></small></p>
@@ -70,10 +72,11 @@
                         <a th:href="'/book/show/' + ${book.bookId}">more >></a>
                     </div>
                 </div>
+                </div>
             </div>
 
-            </tr>
 
+    </tr>
 </div>
 
 
