@@ -9,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +53,10 @@ public class BookController {
 
 
     @PostMapping("/addBook")
-    public String saveBook(@Valid @ModelAttribute BookCommand bookCommand, BindingResult bindingResult,Model model){
+    public String saveBook(@Valid @ModelAttribute BookCommand bookCommand,
+                           BindingResult bindingResult,
+                           Model model,
+                           @RequestParam("file") MultipartFile multipartFile) throws IOException {
 
         if(bindingResult.hasErrors()){
 
@@ -65,8 +70,9 @@ public class BookController {
 
             return "book/addBook";
         }else {
-            bookService.saveBook(bookCommand);
+            bookService.saveBook(bookCommand,multipartFile);
             return "redirect:/index";
         }
     }
+
 }

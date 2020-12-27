@@ -8,11 +8,11 @@ import com.goodreads.goodreads.service.TvSeriesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.thymeleaf.model.IModel;
+
+import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor
@@ -22,7 +22,7 @@ public class TvSeriesController {
     private final TvSeriesService tvSeriesService;
     private final DirectorService directorService;
 
-    @RequestMapping({"/tvSeries"})
+    @RequestMapping("")
     public String getTvSeries(Model model){
 
         model.addAttribute("TvSeries",tvSeriesService.findAllTvSeries());
@@ -50,9 +50,12 @@ public class TvSeriesController {
     }
 
     @PostMapping("/addTvSeries")
-    public String saveTvSeries(@ModelAttribute TvSeriesCommand tvSeriesCommand){
+    public String saveTvSeries(@ModelAttribute TvSeriesCommand tvSeriesCommand,
+                               @RequestParam("file") MultipartFile multipartFile) throws IOException {
 
-        tvSeriesService.saveTvSeries(tvSeriesCommand);
+
+        tvSeriesService.saveTvSeries(tvSeriesCommand, multipartFile);
+
 
         return "redirect:/index";
 

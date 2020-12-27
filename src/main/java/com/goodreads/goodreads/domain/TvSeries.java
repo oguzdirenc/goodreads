@@ -28,6 +28,9 @@ public class TvSeries {
     private double imdb;
     private LocalDate tvSeriesUpdateDate;
 
+    @Lob
+    private String thumbnail;
+
     @ManyToMany
     @JoinTable(name = "tvSeries_actor",
               joinColumns = {@JoinColumn(name = "tv_series_id")},

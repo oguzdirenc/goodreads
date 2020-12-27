@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<form  th:object="${bookCommand}"  th:action="@{/book/addBook}"  method="post">
+<form  th:object="${bookCommand}"  th:action="@{/book/addBook}"  method="post" enctype="multipart/form-data" >
 
     <input type="hidden" th:field="*{bookId}"/>
 
@@ -49,6 +49,10 @@
         <label>Comment</label>
         <input type="text" class="form-control" th:field="*{commentDescription}"/>
     </div>
+
+    <label for="exampleFormControlFile1">Example file input</label>
+    <input type="file" class="form-control-file"
+           id="exampleFormControlFile1" name="file">
 
 
     <button type="submit" class="btn btn-secondary">Submit</button>

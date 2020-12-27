@@ -3,6 +3,7 @@ package com.goodreads.goodreads.command;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -34,6 +35,7 @@ public class BookCommand {
     private String commentDescription;
     private String publisherName;
     private String type;
+    private MultipartFile image;
 
 
 }

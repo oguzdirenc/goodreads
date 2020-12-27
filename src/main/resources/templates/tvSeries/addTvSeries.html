@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<form  th:object="${tvSeriesCommand}"  th:action="@{/tvSeries/addTvSeries}"  method="post">
+<form  th:object="${tvSeriesCommand}"  th:action="@{/tvSeries/addTvSeries}"  method="post" enctype="multipart/form-data">
 
     <input type="hidden" th:field="*{tvSeriesId}"/>
 
@@ -24,6 +24,14 @@
         <input type="text" class="form-control" th:field="*{tvSeriesSeason}"/>
     </div>
 
+    <select th:field="*{isOver}" class="form-select" aria-label="Default select example">
+        <option th:value="true" th:text="'True'"></option>
+        <option th:value="false" th:text="'False'"></option>
+    </select>
+
+    <label for="exampleFormControlFile1">Example file input</label>
+    <input type="file" class="form-control-file"
+           id="exampleFormControlFile1" name="file">
 
     <div class="col-md-3 form-group">
         <label>IMDB</label>

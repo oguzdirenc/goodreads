@@ -1,10 +1,10 @@
 body{
-    background-image: url("https://www.businessinsider.in/photo/45665065.cms");
+    background-color: #f3f7f7 !important;
     background-repeat: no-repeat;
     background-size: cover
 }
 .my-card{
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 10px;
     -webkit-box-shadow: 9px 9px 7px 1px rgba(0,0,0,0.67);
     -moz-box-shadow: 9px 9px 7px 1px rgba(0,0,0,0.67);
@@ -16,10 +16,6 @@ body{
     transform: translateY(-1%);
 }
 .container-all{
-    border-style: solid;
-    border-color: #ebf7f5;
-    border-width: 2px;
-    border-radius: 20px;
     margin-bottom: 20px;
 }
 .headert{
@@ -31,7 +27,7 @@ body{
 }
 .my-card-link{
     color: black;
-    margin-left: 1150px;
+    margin-left: 1190px;
 }
 .card-image{
     width: 200px;

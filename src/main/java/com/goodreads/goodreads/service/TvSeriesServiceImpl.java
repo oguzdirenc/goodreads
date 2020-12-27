@@ -6,9 +6,12 @@ import com.goodreads.goodreads.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -76,7 +79,7 @@ public class TvSeriesServiceImpl implements TvSeriesService {
     }
 
     @Override
-    public void saveTvSeries(TvSeriesCommand tvSeriesCommand) {
+    public void saveTvSeries(TvSeriesCommand tvSeriesCommand, MultipartFile multipartFile) throws IOException {
 
         TvSeries tvSeries = new TvSeries();
 
@@ -101,10 +104,13 @@ public class TvSeriesServiceImpl implements TvSeriesService {
         tvSeries.getTvSeriesTypeSet().add(type);
 
         tvSeries.setTvSeriesSeason(tvSeriesCommand.getTvSeriesSeason());
-        tvSeries.setOver(tvSeriesCommand.isOver());
+        tvSeries.setOver(tvSeriesCommand.getIsOver());
         tvSeries.setImdb(tvSeriesCommand.getImdb());
         tvSeries.setTvSeriesName(tvSeriesCommand.getTvSeriesName());
         tvSeries.setTvSeriesUpdateDate(LocalDate.now());
+
+        String imageString = Base64.getEncoder().encodeToString(multipartFile.getBytes());
+        tvSeries.setThumbnail(imageString);
 
         tvSeriesRepository.save(tvSeries);
     }

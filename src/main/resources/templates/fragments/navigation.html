@@ -6,8 +6,8 @@
 </head>
 <body>
 
-    <nav class="all-navbar-bg navbar navbar-expand-lg navbar-dark " th:fragment="navigation">
-        <div class="container-fluid">
+    <nav class="all-navbar-bg navbar navbar-expand-lg navbar-light home-bg navbar-shadow" th:fragment="navigation">
+
             <a class="navbar-brand" href="http://localhost:8080/index"><H2>
                 <img src="\mylist.jpg" class="logo-format"></H2></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +18,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="http://localhost:8080/index"><H3>
-                            <span class="badge home-bg text-dark">HOME</span></H3></a>
+                            <span class="home-bg home-font">MYLIST</span></H3></a>
                     </li>
                 </ul>
 
@@ -26,21 +26,21 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:8080/book/books"><H4>
-                            <span class="badge text-dark bg-success">BOOK</span></H4></a>
+                        <a class="nav-link " href="http://localhost:8080/book/books"><H4>
+                            <span class="home-bg left-margin">BOOK</span></H4></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link" href="http://localhost:8080/movie/movies"><H4><span
-                                class="badge bg-danger">MOVIE</span></H4></a>
+                                class="home-bg left-margin">MOVIE</span></H4></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link" href="http://localhost:8080/tvSeries"><H4>
-                            <span class="badge bg-warning text-dark">TVSERIES</span></H4></a>
+                            <span class=" home-bg left-margin">TVSERIES</span></H4></a>
                     </li>
 
                 </ul>
             </div>
-        </div>
+
     </nav>
 
 </body>

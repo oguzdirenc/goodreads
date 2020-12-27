@@ -5,9 +5,12 @@ import com.goodreads.goodreads.domain.*;
 import com.goodreads.goodreads.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,7 +74,7 @@ public class BookServiceImpl implements BookService {
         return book2;
     }
 
-    public void saveBook(BookCommand bookCommand){
+    public void saveBook(BookCommand bookCommand, MultipartFile multipartFile) throws IOException {
 
         Book book =new Book();
 
@@ -99,6 +102,9 @@ public class BookServiceImpl implements BookService {
         type.setTypeName(bookCommand.getType());
         typeRepository.save(type);
         book.getTypeSet().add(type);
+
+        String imageString = Base64.getEncoder().encodeToString(multipartFile.getBytes());
+        book.setThumbnail(imageString);
 
         bookRepository.save(book);
 
