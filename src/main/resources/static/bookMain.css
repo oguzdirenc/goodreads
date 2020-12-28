@@ -5,6 +5,7 @@ body{
 }
 .accordion-item-font{
     font-family: "Times New Roman";
+    background-color:white !important;
 }
 .my-book-card{
     margin-left: 50px;
@@ -16,8 +17,26 @@ body{
 .card-image-size{
     width:170px ;
     height: 270px;
+    margin: 5px;
 }
 .my-card-margin{
     margin-top: 10px !important;
     margin-bottom: 15px; !important;
+    box-shadow: 7px 7px 5px 1px rgba(0,0,0,0.47);
+}
+.my-card-margin:hover{
+    cursor: pointer;
+    opacity: 0.9;
+    transform: translateY(-1%);
+}
+.my-list-bg{
+    margin-top: 10px !important;
+}
+.header{
+    margin-left: 2px;
+    font-size:large;
+    text-decoration: underline;
+}
+.book-header{
+    margin-top: 9px;
 }
