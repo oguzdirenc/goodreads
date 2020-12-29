@@ -5,16 +5,37 @@ body{
 }
 .my-tvSeries-card{
     margin-left: 50px;
-    margin-bottom: 27px;
 }
 .top5-list-font{
     font-family: "Times New Roman";
 }
 .accordion-item-font{
     font-family: "Times New Roman";
-    font-size: small;
+    background-color:white !important;
 }
 .my-card-image{
     width:170px ;
     height: 270px;
+    margin: 5px;
+}
+.my-list-bg{
+    margin-top: 11px !important;
+}
+.header{
+    margin-left: 2px;
+    font-size:large;
+    text-decoration: underline;
+}
+.tvSeries-header{
+    margin-top: 9px;
+}
+.my-card-margin{
+    margin-top: 10px !important;
+    margin-bottom: 15px; !important;
+    box-shadow: 7px 7px 5px 1px rgba(0,0,0,0.47);
+}
+.my-card-margin:hover{
+    cursor: pointer;
+    opacity: 0.9;
+    transform: translateY(-1%);
 }

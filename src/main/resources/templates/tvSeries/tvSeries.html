@@ -19,8 +19,8 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-md-3">
-
+        <div class="col-md-3 my-list-bg">
+            <h3 class="header">Authors</h3>
             <div class="accordion " id="accordionExample" th:each="director:${Director}">
 
                 <div class="accordion-item "  >
@@ -48,15 +48,16 @@
         </div>
 
 
-        <div class="col-md-6 card my-tvSeries-card" style="max-width: 540px;">
-
+        <div class="col-md-6 my-tvSeries-card" style="max-width: 540px;">
+            <h3 class="header tvSeries-header">TV-SERIES</h3>
             <tr th:each="tvSeries : ${TvSeries}">
 
-                <div class="row g-0">
+                <div class="g-0 card my-card-margin">
+                    <div class="row">
                     <div class="col-md-4">
                         <img class="my-card-image" th:src="'data:image/jpeg;base64,'+${tvSeries.thumbnail}" alt="...">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="card-body">
                             <h5 class="card-title" th:text="${tvSeries.tvSeriesName}"></h5>
                             <p class="card-text"><small class="text-muted" th:text="${tvSeries.imdb}"></small></p>
@@ -67,15 +68,16 @@
                         </div>
                     </div>
                 </div>
-
+                </div>
             </tr>
 
         </div>
 
-        <div class="list-group col-md-3 my-tvSeries-card top5-list-font" >
+        <div class="list-group col-md-3 my-tvSeries-card my-list-bg" >
+            <h3 class="header ">Top 5 TvSeries</h3>
             <tr th:each="topTvSeries : ${Top5List}">
                 <a th:href="'/tvSeries/show/' + ${topTvSeries.tvSeriesId}"
-                   class="list-group-item list-group-item-action " th:text="${topTvSeries.tvSeriesName}"></a>
+                   class="list-group-item top5-list-font list-group-item-action " th:text="'-'+${topTvSeries.tvSeriesName}"></a>
             </tr>
         </div>
 

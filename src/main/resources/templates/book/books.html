@@ -85,7 +85,8 @@
     <div class="list-group col-md-3 my-book-card  my-list-bg " >
         <h3 class="header ">Top 5 Book</h3>
     <tr th:each="topBook : ${TopList}">
-        <a th:href="'/book/show/' + ${topBook.bookId}" class="list-group-item top5-list-font list-group-item-action " th:text="'-'+${topBook.bookName}"></a>
+        <a th:href="'/book/show/' + ${topBook.bookId}" class="list-group-item
+        top5-list-font list-group-item-action " th:text="'-'+${topBook.bookName}"></a>
     </tr>
         </div>
 
