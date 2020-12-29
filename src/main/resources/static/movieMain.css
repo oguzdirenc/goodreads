@@ -11,9 +11,31 @@ body{
 }
 .accordion-item-font{
     font-family: "Times New Roman";
-    font-size: small;
+    background-color:white !important;
+}
+.movie-header{
+    margin-top: 9px;
 }
 .my-card-image{
     width:170px ;
     height: 270px;
+    margin: 5px;
+}
+.my-list-bg {
+    margin-top: 11px !important;
+}
+.header{
+    margin-left: 2px;
+    font-size:large;
+    text-decoration: underline;
+}
+.my-card-margin{
+    margin-top: 10px !important;
+    margin-bottom: 15px; !important;
+    box-shadow: 7px 7px 5px 1px rgba(0,0,0,0.47);
+}
+.my-card-margin:hover{
+    cursor: pointer;
+    opacity: 0.9;
+    transform: translateY(-1%);
 }
