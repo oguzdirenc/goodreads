@@ -44,7 +44,7 @@ public class TvSeries {
     private Set<Director> tvSeriesDirectorSet = new HashSet<Director>();
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "tvSeries")
-    private List<Comment> tvSeriesCommentList = new ArrayList<Comment>();
+    private Set<Comment> tvSeriesCommentList = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "tvSeries")
     private Set<Type> tvSeriesTypeSet = new HashSet<>();

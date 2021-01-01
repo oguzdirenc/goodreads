@@ -30,7 +30,7 @@ public class Movie {
     private String thumbnail;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "movie")
-    private List<Comment> commentList = new ArrayList<>();
+    private Set<Comment> commentList = new HashSet<>();
 
     @ManyToMany
     @JoinTable(name = "movie_actor",

@@ -88,26 +88,32 @@ public class BookServiceImpl implements BookService {
         authorRepository.save(author);
         book.getAuthorSet().add(author);
 
-        Comment comment = new Comment();
-        comment.setDescription(bookCommand.getCommentDescription());
-        commentRepository.save(comment);
-        book.getBookCommentList().add(comment);
+
+
 
         Publisher publisher = new Publisher();
         publisher.setPublisherName(bookCommand.getPublisherName());
         publisherRepository.save(publisher);
         book.getPublisherSet().add(publisher);
 
-        Type type = new Type();
-        type.setTypeName(bookCommand.getType());
-        typeRepository.save(type);
-        book.getTypeSet().add(type);
+
 
         bookCommand.setImage(multipartFile);
         String imageString = Base64.getEncoder().encodeToString(bookCommand.getImage().getBytes());
         book.setThumbnail(imageString);
 
         bookRepository.save(book);
+
+        Type type = new Type();
+        type.setTypeName(bookCommand.getType());
+        type.setBook(book);
+        typeRepository.save(type);
+
+
+        Comment comment = new Comment();
+        comment.setDescription(bookCommand.getCommentDescription());
+        comment.setBook(book);
+        commentRepository.save(comment);
 
     }
 

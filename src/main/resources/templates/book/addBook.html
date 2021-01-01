@@ -2,6 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 
+    <link href="/navbar.css" rel="stylesheet" type="text/css" th:href="@{/navbar.css}">
+
+    <link href="/showMain.css" rel="stylesheet" type="text/css" th:href="@{/showMain.css}">
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
           crossorigin="anonymous">
@@ -11,54 +16,105 @@
 </head>
 <body>
 
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="container my-container ">
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card add-shadow-card">
 <form  th:object="${bookCommand}"  th:action="@{/book/addBook}"  method="post" enctype="multipart/form-data" >
+
 
     <input type="hidden" th:field="*{bookId}"/>
 
-    <div class="col-md-3 form-group">
-        <label>Book Name</label>
-        <input type="text" class="form-control" th:field="*{bookName}"/>
+    <div class="row my-form-size">
+    <div class="my-form-text col-md-3 form-group">
+        <label >Book Name:</label>
+    </div>
+        <div class=" col-md-7 form-group">
+            <input type="text" class="form-control" th:field="*{bookName}"/>
+        </div>
     </div>
 
-    <div class="col-md-3 form-group">
-        <label>Book Page</label>
-        <input type="text" class="form-control" th:field="*{bookPage}"/>
+    <div class="row my-form-size">
+        <div class="my-form-text col-md-3 form-group">
+            <label >Book Page:</label>
+        </div>
+        <div class=" col-md-7 form-group">
+            <input type="text" class="form-control" th:field="*{bookPage}"/>
+        </div>
     </div>
 
-    <div class="col-md-3 form-group">
-        <label>Category</label>
-        <input type="text" class="form-control" th:field="*{type}"/>
+    <div class="row my-form-size">
+        <div class="my-form-text col-md-3 form-group">
+            <label >Category:</label>
+        </div>
+        <div class=" col-md-7 form-group">
+                <select th:field="*{type}" class="form-select">
+                    <option th:value="Action" >Action</option>
+                    <option th:value="Comedy" >Comedy</option>
+                    <option th:value="Horror" >Horror</option>
+                </select>
+        </div>
     </div>
 
-    <div class="col-md-3 form-group">
-        <label>Book Point</label>
-        <input type="text" class="form-control" th:field="*{bookPoint}"/>
+    <div class="row my-form-size">
+        <div class="my-form-text col-md-3 form-group">
+            <label >Book Point:</label>
+        </div>
+        <div class=" col-md-7 form-group">
+            <input type="text" class="form-control" th:field="*{bookPoint}"/>
+        </div>
     </div>
 
-    <div class="col-md-3 form-group">
-        <label>Author Name:</label>
-        <input type="text" class="form-control" th:field="*{authorName}"/>
+    <div class="row my-form-size">
+        <div class="my-form-text col-md-3 form-group">
+            <label >Author Name:</label>
+        </div>
+        <div class=" col-md-7 form-group">
+            <input type="text" class="form-control" th:field="*{authorName}"/>
+        </div>
     </div>
 
-    <div class="col-md-3 form-group">
-        <label>Publisher Name</label>
-        <input type="text" class="form-control" th:field="*{publisherName}"/>
+    <div class="row my-form-size">
+        <div class="my-form-text col-md-3 form-group">
+            <label >Publisher Name:</label>
+        </div>
+        <div class=" col-md-7 form-group">
+            <input type="text" class="form-control" th:field="*{publisherName}"/>
+        </div>
     </div>
 
-    <div class="col-md-3 form-group">
-        <label>Comment</label>
-        <input type="text" class="form-control" th:field="*{commentDescription}"/>
+    <div class="row my-form-size">
+        <div class="my-form-text col-md-3 form-group">
+            <label >Comment:</label>
+        </div>
+        <div class=" col-md-7 form-group " >
+            <input type="text" class="form-control" rows="3" th:field="*{commentDescription}"/>
+        </div>
     </div>
 
-    <label for="exampleFormControlFile1">Example file input</label>
-    <input type="file" class="form-control-file"
-           id="exampleFormControlFile1" name="file">
+    <div class="row my-form-size">
+        <div class="my-form-text col-md-3 form-group">
+            <label >Book Image:</label>
+        </div>
+        <div class=" col-md-7 form-group " >
+            <input type="file" class="form-control-file"
+                   name="file">
+        </div>
+    </div>
 
 
-    <button type="submit" class="btn btn-secondary">Submit</button>
+
+    <button type="submit" class="btn btn-secondary my-submit-button">Submit</button>
 
 
 </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <h3 th:each="error : ${errors}" th:text="${error}"></h3>
 

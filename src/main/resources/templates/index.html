@@ -37,7 +37,7 @@
             </div>
         </tr>
 
-            <a href="/books" class="card-link my-card-link">see more >>></a>
+           <!-- <a href="/books" class="card-link my-card-link">see more >>></a> -->
     </div>
 
 
@@ -57,27 +57,27 @@
                 </div>
             </div>
         </tr>
-            <a href="/movies" class="card-link my-card-link">see more >>></a>
-    </div>
+        <!--  <a href="/movies" class="card-link my-card-link">see more >>></a> -->
+ </div>
 
-    <div class="row container-all">
+ <div class="row container-all">
 
-            <h3 class="headert">TvSeries</h3>
-        <tr th:each="tvSeries : ${TvSeries}">
-            <div class="col-sm-3">
-            <div class="card my-card my-card-bg" style="...">
-                    <img th:src="'data:image/jpeg;base64,'+${tvSeries.thumbnail}" class="card-image" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${tvSeries.tvSeriesName}"></h5>
-                        <p class="card-text" th:each="actor : ${tvSeries.getTvSeriesActorSet()}"
-                           th:text="${actor.actorName}" ></p>
-                        <a th:href="'/tvSeries/show/' + ${tvSeries.tvSeriesId}"  class="card-link my-card-link all-card-link">About</a>
-                    </div>
-                </div>
-            </div>
-        </tr>
-            <a href="/tvSeries" class="card-link my-card-link">see more >>></a>
-    </div>
+         <h3 class="headert">TvSeries</h3>
+     <tr th:each="tvSeries : ${TvSeries}">
+         <div class="col-sm-3">
+         <div class="card my-card my-card-bg" style="...">
+                 <img th:src="'data:image/jpeg;base64,'+${tvSeries.thumbnail}" class="card-image" alt="...">
+                 <div class="card-body">
+                     <h5 class="card-title" th:text="${tvSeries.tvSeriesName}"></h5>
+                     <p class="card-text" th:each="actor : ${tvSeries.getTvSeriesActorSet()}"
+                        th:text="${actor.actorName}" ></p>
+                     <a th:href="'/tvSeries/show/' + ${tvSeries.tvSeriesId}"  class="card-link my-card-link all-card-link">About</a>
+                 </div>
+             </div>
+         </div>
+     </tr>
+       <!--   <a href="/tvSeries" class="card-link my-card-link">see more >>></a> -->
+ </div>
 
 </div>
 
@@ -85,12 +85,12 @@
 
 
 <script   src="https://code.jquery.com/jquery-3.5.1.js"
-            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-            crossorigin="anonymous"></script>
+         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+         crossorigin="anonymous"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
+     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+     crossorigin="anonymous"></script>
 
 </body>
 

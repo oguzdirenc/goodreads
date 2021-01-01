@@ -35,7 +35,7 @@ public class Book {
     private String thumbnail;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "book")
-    private List<Comment> bookCommentList = new ArrayList<Comment>();
+    private Set<Comment> bookCommentList = new HashSet<>();
 
     @ManyToMany
     @JoinTable(name = "book_author",
@@ -50,5 +50,5 @@ public class Book {
     private Set<Publisher> publisherSet = new HashSet<Publisher>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
-    private Set<Type> typeSet = new HashSet<>();
+    private List<Type> typeSet = new ArrayList<>();
 }
