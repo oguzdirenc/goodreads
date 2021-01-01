@@ -26,4 +26,5 @@ body{
 }
 .shadow-card{
     box-shadow: 9px 9px 7px 1px rgba(0,0,0,0.47);
+    background-color:rgba(244,241,234,0.5) !important;
 }

@@ -34,7 +34,7 @@ public class MovieController {
     public String showById(@PathVariable String id, Model model){
 
         model.addAttribute("movie",movieService.findById(Long.valueOf(id)));
-        return "/movie/show";
+        return "movie/show";
     }
 
     @RequestMapping("/addMovie")

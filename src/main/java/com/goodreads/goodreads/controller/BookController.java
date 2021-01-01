@@ -74,5 +74,12 @@ public class BookController {
             return "redirect:/index";
         }
     }
+    @RequestMapping("/delete/{id}")
+    public String deleteById(@PathVariable String id, Model model){
+
+        bookService.deleteById(Long.valueOf(id));
+
+        return "redirect:/book/books";
+    }
 
 }
