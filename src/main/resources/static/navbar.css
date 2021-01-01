@@ -22,3 +22,15 @@
 .navbar-shadow{
     box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.47)
 }
+.plus-icon{
+    background-color :#2f323a !important;
+}
+.my-icon-margin{
+    margin-left: 860px;
+}
+.my-dropdown{
+    color: white !important;
+}
+.my-dropdown:hover{
+    color: black !important;
+}
