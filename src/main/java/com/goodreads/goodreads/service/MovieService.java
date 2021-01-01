@@ -13,4 +13,5 @@ public interface MovieService {
     List<Movie> top5Movie();
     Movie findById(Long aLong);
     void saveMovie(MovieCommand movieCommand, MultipartFile multipartFile) throws IOException;
+    void deleteById(Long id);
 }

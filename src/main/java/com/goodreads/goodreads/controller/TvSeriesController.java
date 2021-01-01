@@ -23,27 +23,27 @@ public class TvSeriesController {
     private final DirectorService directorService;
 
     @RequestMapping("")
-    public String getTvSeries(Model model){
+    public String getTvSeries(Model model) {
 
-        model.addAttribute("TvSeries",tvSeriesService.findAllTvSeries());
-        model.addAttribute("Director",directorService.getDirectorOrderByName());
-        model.addAttribute("Top5List",tvSeriesService.getTop5TvSeries());
+        model.addAttribute("TvSeries", tvSeriesService.findAllTvSeries());
+        model.addAttribute("Director", directorService.getDirectorOrderByName());
+        model.addAttribute("Top5List", tvSeriesService.getTop5TvSeries());
 
         return "tvSeries/tvSeries";
     }
 
     @RequestMapping("/show/{id}")
-    public String showTvSeries(@PathVariable String id, Model model){
+    public String showTvSeries(@PathVariable String id, Model model) {
 
-        model.addAttribute("tvSeries",tvSeriesService.findById(Long.valueOf(id)));
+        model.addAttribute("tvSeries", tvSeriesService.findById(Long.valueOf(id)));
 
         return "/tvSeries/show";
     }
 
     @RequestMapping("/addTvSeries")
-    public String addTvSeries(Model model){
+    public String addTvSeries(Model model) {
 
-        model.addAttribute("tvSeriesCommand",new TvSeriesCommand());
+        model.addAttribute("tvSeriesCommand", new TvSeriesCommand());
 
         return "/tvSeries/addTvSeries";
 
@@ -59,5 +59,13 @@ public class TvSeriesController {
 
         return "redirect:/index";
 
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String deleteTvSeries(@PathVariable String id) {
+
+        tvSeriesService.deleteById(Long.valueOf(id));
+
+        return "redirect:/index";
     }
 }

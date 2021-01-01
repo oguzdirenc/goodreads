@@ -54,5 +54,13 @@ public class MovieController {
         return "redirect:/index";
     }
 
+    @RequestMapping("/delete/{id}")
+    public String deleteById(@PathVariable String id, Model model){
+
+        movieService.deleteById(Long.valueOf(id));
+
+        return "redirect:/index";
+    }
+
 
 }

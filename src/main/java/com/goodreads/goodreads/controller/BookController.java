@@ -79,7 +79,7 @@ public class BookController {
 
         bookService.deleteById(Long.valueOf(id));
 
-        return "redirect:/book/books";
+        return "redirect:/index";
     }
 
 }

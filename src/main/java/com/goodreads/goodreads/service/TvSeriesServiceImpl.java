@@ -115,4 +115,9 @@ public class TvSeriesServiceImpl implements TvSeriesService {
 
         tvSeriesRepository.save(tvSeries);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        tvSeriesRepository.deleteById(id);
+    }
 }

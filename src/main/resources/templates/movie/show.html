@@ -48,7 +48,7 @@
                     <p class="card-text" th:text="'-'+${comment.description}"></p>
                 </tr>
 
-                <a href="#" class="delete-button">Delete movie</a>
+                <a th:href="'/movie/delete/'+${movie.movieId}" class="delete-button">Delete movie</a>
 
             </div>
         </div>

@@ -13,4 +13,5 @@ public interface TvSeriesService {
     List<TvSeries> getTop5TvSeries();
     TvSeries findById(Long aLong);
     void saveTvSeries(TvSeriesCommand tvSeriesCommand, MultipartFile multipartFile) throws IOException;
+    void deleteById(Long id);
 }
