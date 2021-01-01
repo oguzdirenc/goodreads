@@ -22,7 +22,7 @@
 <div class="container">
 
 <div class="row">
-    <div class="col-md-3 my-list-bg">
+    <div class="col-md-3 my-list-bg ">
         <h3 class="header">Authors</h3>
         <div class="accordion " id="accordionExample" th:each="author:${Authors}">
 
@@ -30,7 +30,7 @@
 
                 <h2 class="accordion-header " id="headingOne" >
 
-                    <button class="accordion-button collapsed accordion-item-font " type="button" data-bs-toggle="collapse"
+                    <button class="accordion-button collapsed accordion-item-font my-card-bg" type="button" data-bs-toggle="collapse"
                             th:data-bs-target="'#'+${author.authorFirstName}" aria-expanded="false" aria-controls="collapseTwo" th:text="${author.authorName}">
                     </button>
                 </h2>
@@ -57,7 +57,7 @@
     <tr  th:each="book : ${Books}">
 
 
-            <div class=" g-0 card my-card-margin">
+            <div class=" g-0 card my-card-margin my-card-bg">
                 <div class="row ">
                 <div class="col-md-4 ">
                     <img class="card-image-size" th:src="'data:image/jpeg;base64,'+${book.thumbnail}"
@@ -85,7 +85,7 @@
     <div class="list-group col-md-3 my-book-card  my-list-bg " >
         <h3 class="header ">Top 5 Book</h3>
     <tr th:each="topBook : ${TopList}">
-        <a th:href="'/book/show/' + ${topBook.bookId}" class="list-group-item
+        <a th:href="'/book/show/' + ${topBook.bookId}" class="list-group-item my-card-bg
         top5-list-font list-group-item-action " th:text="'-'+${topBook.bookName}"></a>
     </tr>
         </div>

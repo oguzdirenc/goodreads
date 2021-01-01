@@ -27,7 +27,7 @@
 
                     <h2 class="accordion-header " id="headingOne" >
 
-                        <button class="accordion-button collapsed accordion-item-font" type="button" data-bs-toggle="collapse"
+                        <button class="accordion-button collapsed accordion-item-font my-card-bg" type="button" data-bs-toggle="collapse"
                                 th:data-bs-target="'#'+${director.directorFirstName}" aria-expanded="false" aria-controls="collapseTwo" th:text="${director.directorName}">
                         </button>
                     </h2>
@@ -52,7 +52,7 @@
             <h3 class="header tvSeries-header">TV-SERIES</h3>
             <tr th:each="tvSeries : ${TvSeries}">
 
-                <div class="g-0 card my-card-margin">
+                <div class="g-0 card my-card-margin my-card-bg">
                     <div class="row">
                     <div class="col-md-4">
                         <img class="my-card-image" th:src="'data:image/jpeg;base64,'+${tvSeries.thumbnail}" alt="...">
@@ -77,7 +77,7 @@
             <h3 class="header ">Top 5 TvSeries</h3>
             <tr th:each="topTvSeries : ${Top5List}">
                 <a th:href="'/tvSeries/show/' + ${topTvSeries.tvSeriesId}"
-                   class="list-group-item top5-list-font list-group-item-action " th:text="'-'+${topTvSeries.tvSeriesName}"></a>
+                   class="list-group-item top5-list-font my-card-bg list-group-item-action " th:text="'-'+${topTvSeries.tvSeriesName}"></a>
             </tr>
         </div>
 

@@ -1,9 +1,29 @@
+body{
+    background-color: #f3f7f7 !important;
+    background-repeat: no-repeat;
+    background-size: cover
+}
 .show-image-size{
     width: 275px !important;
-    height: 550px !important;
+    height: 400px !important;
     margin: 5px;
 }
 .body-margin{
     margin-top: 10px;
     margin-left: 10px !important;
+}
+.my-container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.my-comment{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.delete-button{
+    margin-left: 525px;
+}
+.shadow-card{
+    box-shadow: 9px 9px 7px 1px rgba(0,0,0,0.47);
 }

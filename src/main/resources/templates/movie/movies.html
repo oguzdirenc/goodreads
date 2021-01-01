@@ -18,14 +18,14 @@
 <div th:replace="fragments/navigation :: navigation"></div>
 
 
-<div class="container">
+<div class="container ">
     <div class="row">
 
-        <div class="col-md-3 my-list-bg">
+        <div class="col-md-3 my-list-bg ">
             <h3 class="header">Directors</h3>
             <div class="accordion " id="accordionExample" th:each="director : ${Director}">
 
-                <div class="accordion-item "  >
+                <div class="accordion-item my-card-bg"  >
 
                     <h2 class="accordion-header " id="headingOne" >
 
@@ -51,11 +51,11 @@
         </div>
 
 
-        <div class="col-md-6  my-movie-card" style="max-width: 540px;">
+        <div class="col-md-6  my-movie-card " style="max-width: 540px;">
             <h3 class="header movie-header">MOVIES</h3>
             <tr th:each="movie : ${Movies}">
 
-                <div class="g-0 card my-card-margin">
+                <div class="g-0 card my-card-margin my-card-bg">
                     <div class="row ">
                     <div class="col-md-4">
                         <img class="my-card-image" th:src="'data:image/jpeg;base64,'+${movie.thumbnail}" alt="...">
@@ -77,10 +77,10 @@
 
         </div>
 
-        <div class="list-group col-md-3 my-movie-card my-list-bg" >
+        <div class="list-group col-md-3 my-movie-card my-list-bg " >
             <h3 class="header ">Top 5 Movie</h3>
             <tr th:each="topMovie : ${Top5List}">
-                <a th:href="'/movie/show/' + ${topMovie.movieId}" class="list-group-item
+                <a th:href="'/movie/show/' + ${topMovie.movieId}" class="list-group-item my-card-bg
                 top5-list-font list-group-item-action " th:text="'-'+${topMovie.movieName}"></a>
             </tr>
         </div>

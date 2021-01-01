@@ -33,11 +33,15 @@ body{
     width: 200px;
     height: 250px;
     margin-left: 50px;
+    margin-top: 5px;
 }
 .all-card-link{
     margin-left: 210px;
 }
 .all-card-link:hover{
     color: black;
+}
+.my-card-bg{
+    background-color: rgba(244,241,234,0.5) !important;
 }
 

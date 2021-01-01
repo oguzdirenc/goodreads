@@ -17,10 +17,10 @@
 <div th:replace="fragments/navigation :: navigation"></div>
 
 
-<div class="container">
+<div class="container my-container">
 <div class="row">
 <div class="col-md-6 offset-md-3">
-<div class="card" >
+<div class="card shadow-card" >
     <div class="row">
         <div class="col-md-5">
     <img  th:src="'data:image/jpeg;base64,'+${book.thumbnail}" class="card-img-top show-image-size" alt="...">
@@ -28,12 +28,28 @@
         <div class="col-md-7">
     <div class="card-body body-margin">
         <h2 class="card-title" th:text="${book.bookName}" >Card title</h2>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <p class="card-text" th:text="'Point : ' + ${book.bookPoint}+ '     ***  ' +
+                                      'Page : ' + ${book.bookPage}"></p>
+        <p class="card-text" >Authors : </p>
+        <tr th:each="author : ${book.authorSet}">
+            <p class="card-text" th:text="'-'+${author.authorName}"></p>
+        </tr>
+        <p class="card-text" >Publisher : </p>
+        <tr th:each="publisher : ${book.publisherSet}">
+            <p class="card-text" th:text="'-'+${publisher.publisherName}"></p>
+        </tr>
+
     </div>
     </div>
 </div>
-</div>
+    <h4 class="my-comment">Comments:</h4>
+    <tr th:each="comment : ${book.bookCommentList}">
+        <p class="card-text" th:text="'-'+${comment.description}"></p>
+    </tr>
+
+    <a href="#" class="delete-button">Delete book</a>
+
+    </div>
 </div>
 </div>
 </div>

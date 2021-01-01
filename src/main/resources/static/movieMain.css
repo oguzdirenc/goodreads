@@ -11,7 +11,6 @@ body{
 }
 .accordion-item-font{
     font-family: "Times New Roman";
-    background-color:white !important;
 }
 .movie-header{
     margin-top: 9px;
@@ -38,4 +37,7 @@ body{
     cursor: pointer;
     opacity: 0.9;
     transform: translateY(-1%);
+}
+.my-card-bg{
+    background-color: rgba(244,241,234,0.5) !important;
 }
