@@ -29,8 +29,7 @@ public class Type {
     @JoinColumn(name = "tv_series_id")
     private TvSeries tvSeries;
 
-    @ManyToOne
-    @JoinColumn(name = "book_id")
-    private Book book;
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "typeSet")
+    private Set<Book> bookSet;
 
 }

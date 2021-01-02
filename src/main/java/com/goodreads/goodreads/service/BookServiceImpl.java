@@ -88,8 +88,18 @@ public class BookServiceImpl implements BookService {
         authorRepository.save(author);
         book.getAuthorSet().add(author);
 
+        List<String> typeNames = typeRepository.getTypeNames();
+        if(typeNames.contains(bookCommand.getType())){
 
+            book.getTypeSet().add(typeRepository.findByTypeName(bookCommand.getType()));
 
+        }else {
+
+            Type type = new Type();
+            type.setTypeName(bookCommand.getType());
+            typeRepository.save(type);
+            book.getTypeSet().add(type);
+        }
 
         Publisher publisher = new Publisher();
         publisher.setPublisherName(bookCommand.getPublisherName());
@@ -104,10 +114,7 @@ public class BookServiceImpl implements BookService {
 
         bookRepository.save(book);
 
-        Type type = new Type();
-        type.setTypeName(bookCommand.getType());
-        type.setBook(book);
-        typeRepository.save(type);
+
 
 
         Comment comment = new Comment();

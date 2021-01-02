@@ -49,6 +49,9 @@ public class Book {
             inverseJoinColumns = {@JoinColumn(name = "publisher_id")})
     private Set<Publisher> publisherSet = new HashSet<Publisher>();
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
+    @ManyToMany
+    @JoinTable(name = "book_type",
+            joinColumns = {@JoinColumn(name = "book_id")},
+            inverseJoinColumns = {@JoinColumn(name = "type_id")})
     private List<Type> typeSet = new ArrayList<>();
 }

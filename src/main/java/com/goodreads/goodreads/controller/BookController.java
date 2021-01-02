@@ -1,8 +1,10 @@
 package com.goodreads.goodreads.controller;
 
 import com.goodreads.goodreads.command.BookCommand;
+import com.goodreads.goodreads.domain.Type;
 import com.goodreads.goodreads.service.AuthorService;
 import com.goodreads.goodreads.service.BookService;
+import com.goodreads.goodreads.service.TypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,12 +25,14 @@ public class BookController {
 
     private final BookService bookService;
     private final AuthorService authorService;
+    private final TypeService typeService;
 
     @RequestMapping({"/books",""})
     public String getBooks(Model model){
         model.addAttribute("Books",bookService.findAllBooks());
         model.addAttribute("Authors",authorService.getAuthorsByName());
         model.addAttribute("TopList",bookService.top5Book());
+        model.addAttribute("Type",typeService.getAllTypes());
 
         return "book/books";
     }
