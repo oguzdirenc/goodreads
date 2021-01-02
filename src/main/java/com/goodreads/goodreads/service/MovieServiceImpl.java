@@ -85,15 +85,6 @@ public class MovieServiceImpl implements MovieService {
         movie.setImdb(movieCommand.getImdb());
         movie.setMovieUpdateDate(LocalDate.now());
 
-        Comment comment = new Comment();
-        comment.setDescription(movieCommand.getCommentDescription());
-        commentRepository.save(comment);
-        movie.getCommentList().add(comment);
-
-        Type type = new Type();
-        type.setTypeName(movieCommand.getType());
-        typeRepository.save(type);
-        movie.getMovieTypeSet().add(type);
 
         Director director = new Director();
         director.setDirectorName(movieCommand.getDirectorName());
@@ -110,6 +101,17 @@ public class MovieServiceImpl implements MovieService {
         movie.setThumbnail(stringImage);
 
         movieRepository.save(movie);
+
+        Type type = new Type();
+        type.setTypeName(movieCommand.getType());
+        type.setMovie(movie);
+        typeRepository.save(type);
+
+
+        Comment comment = new Comment();
+        comment.setDescription(movieCommand.getCommentDescription());
+        comment.setMovie(movie);
+        commentRepository.save(comment);
 
     }
 

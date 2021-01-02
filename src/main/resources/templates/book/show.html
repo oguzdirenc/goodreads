@@ -28,7 +28,7 @@
         <div class="col-md-7">
     <div class="card-body body-margin">
         <h2 class="card-title" th:text="${book.bookName}" >Card title</h2>
-        <p class="card-text" th:text="'Point : ' + ${book.bookPoint}+ '     ***  ' +
+        <p class="card-text" th:text="'Point : ' + ${book.bookPoint}+
                                       'Page : ' + ${book.bookPage}"></p>
         <p class="card-text" >Authors : </p>
         <tr th:each="author : ${book.authorSet}">
