@@ -21,13 +21,11 @@ public class Type {
     private Long typeId;
     private String typeName;
 
-    @ManyToOne
-    @JoinColumn(name = "movie_id")
-    private Movie movie;
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "movieTypeSet")
+    private Set<Movie> movieSet;
 
-    @ManyToOne
-    @JoinColumn(name = "tv_series_id")
-    private TvSeries tvSeries;
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "tvSeriesTypeSet")
+    private Set<TvSeries> tvSeriesSet;
 
     @ManyToMany(cascade = CascadeType.ALL,mappedBy = "typeSet")
     private Set<Book> bookSet;

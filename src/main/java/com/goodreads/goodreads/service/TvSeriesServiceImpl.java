@@ -93,6 +93,18 @@ public class TvSeriesServiceImpl implements TvSeriesService {
         directorRepository.save(director);
         tvSeries.getTvSeriesDirectorSet().add(director);
 
+        List<String> typeNames = typeRepository.getTypeNames();
+        if(typeNames.contains(tvSeriesCommand.getType())){
+
+            tvSeries.getTvSeriesTypeSet().add(typeRepository.findByTypeName(tvSeriesCommand.getType()));
+
+        }else {
+
+            Type type = new Type();
+            type.setTypeName(tvSeriesCommand.getType());
+            typeRepository.save(type);
+            tvSeries.getTvSeriesTypeSet().add(type);
+        }
 
         tvSeries.setTvSeriesSeason(tvSeriesCommand.getTvSeriesSeason());
         tvSeries.setOver(tvSeriesCommand.getIsOver());
@@ -106,10 +118,6 @@ public class TvSeriesServiceImpl implements TvSeriesService {
 
         tvSeriesRepository.save(tvSeries);
 
-        Type type = new Type();
-        type.setTypeName(tvSeriesCommand.getType());
-        type.setTvSeries(tvSeries);
-        typeRepository.save(type);
 
 
         Comment comment = new Comment();

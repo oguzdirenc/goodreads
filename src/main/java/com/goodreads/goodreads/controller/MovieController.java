@@ -4,6 +4,7 @@ import com.goodreads.goodreads.command.MovieCommand;
 import com.goodreads.goodreads.domain.Movie;
 import com.goodreads.goodreads.service.DirectorService;
 import com.goodreads.goodreads.service.MovieService;
+import com.goodreads.goodreads.service.TypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,12 +20,14 @@ public class MovieController {
 
     private final MovieService movieService;
     private final DirectorService directorService;
+    private final TypeService typeService;
 
     @RequestMapping("/movies")
     public String getMovies(Model model){
     model.addAttribute("Movies",movieService.findAllMovies());
     model.addAttribute("Director",directorService.getDirectorOrderByName());
     model.addAttribute("Top5List",movieService.top5Movie());
+    model.addAttribute("Type",typeService.getAllTypes());
 
     return "/movie/movies";
     }

@@ -14,5 +14,8 @@ public interface TypeRepository extends JpaRepository<Type,Long> {
 
     Type findByTypeName(String name);
 
+    @Query("select x from Type x order by x.typeName")
+    List<Type> getTypesByName();
+
 }
 

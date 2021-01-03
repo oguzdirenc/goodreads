@@ -14,6 +14,6 @@ public class TypeServiceImp implements TypeService {
     private final TypeRepository typeRepository;
 
     public List<Type> getAllTypes(){
-        return typeRepository.findAll();
+        return typeRepository.getTypesByName();
     }
 }

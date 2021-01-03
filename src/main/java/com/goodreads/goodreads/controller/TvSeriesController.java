@@ -5,6 +5,7 @@ import com.goodreads.goodreads.command.TvSeriesCommand;
 import com.goodreads.goodreads.domain.TvSeries;
 import com.goodreads.goodreads.service.DirectorService;
 import com.goodreads.goodreads.service.TvSeriesService;
+import com.goodreads.goodreads.service.TypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,7 @@ public class TvSeriesController {
 
     private final TvSeriesService tvSeriesService;
     private final DirectorService directorService;
+    private final TypeService typeService;
 
     @RequestMapping("")
     public String getTvSeries(Model model) {
@@ -28,6 +30,7 @@ public class TvSeriesController {
         model.addAttribute("TvSeries", tvSeriesService.findAllTvSeries());
         model.addAttribute("Director", directorService.getDirectorOrderByName());
         model.addAttribute("Top5List", tvSeriesService.getTop5TvSeries());
+        model.addAttribute("Type",typeService.getAllTypes());
 
         return "tvSeries/tvSeries";
     }

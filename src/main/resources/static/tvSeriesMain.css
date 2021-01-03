@@ -41,3 +41,7 @@ body{
 .my-card-bg{
     background-color: rgba(244,241,234,0.5) !important;
 }
+.my-link-bg{
+    background-color: #FFF2FF !important;
+    margin-bottom: 2px;
+}

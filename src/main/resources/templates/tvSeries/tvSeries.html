@@ -21,30 +21,36 @@
     <div class="row">
         <div class="col-md-3 my-list-bg">
             <h3 class="header">Authors</h3>
-            <div class="accordion " id="accordionExample" th:each="director:${Director}">
 
-                <div class="accordion-item "  >
+            <div class="accordion" id="accordionExample">
 
-                    <h2 class="accordion-header " id="headingOne" >
+                <div class="accordion-item" th:each="type :${Type}">
+
+                    <h2 class="accordion-header" id="headingTwo">
 
                         <button class="accordion-button collapsed accordion-item-font my-card-bg" type="button" data-bs-toggle="collapse"
-                                th:data-bs-target="'#'+${director.directorFirstName}" aria-expanded="false" aria-controls="collapseTwo" th:text="${director.directorName}">
+                                th:data-bs-target="'#'+${type.typeName}" aria-expanded="false" aria-controls="collapseTwo" th:text="${type.typeName}">
+                            Accordion Item #2
                         </button>
+
                     </h2>
+                    <div th:id="${type.typeName}" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                         data-bs-parent="#accordionExample" >
 
-                    <tr th:each="tvSeries:${director.getTvSeriesSet()}">
+                        <div class="accordion-body my-card-bg">
 
-                        <div th:id="${director.directorFirstName}" class="accordion-collapse collapse " aria-labelledby="headingOne"
-                             data-bs-parent="#accordionExample" >
-
-                            <a th:href="'/tvSeries/show/' + ${tvSeries.tvSeriesId}"
-                               class="accordion-body accordion-item-font" th:text="'-'+${tvSeries.tvSeriesName}"></a>
-
+                            <div class="list-group " th:each="tvSeries :${type.getTvSeriesSet()}">
+                                <a th:href="'/book/show/' + ${tvSeries.tvSeriesId}" class="list-group-item list-group-item-action accordion-item-font my-link-bg"
+                                   th:text="'->'+${tvSeries.tvSeriesName}"></a>
+                            </div>
                         </div>
-                    </tr>
 
+                    </div>
                 </div>
+
             </div>
+
+
         </div>
 
 

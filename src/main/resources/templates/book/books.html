@@ -24,29 +24,36 @@
 <div class="row">
     <div class="col-md-3 my-list-bg ">
         <h3 class="header">Categories</h3>
-        <div class="accordion " id="accordionExample" th:each="type:${Type}">
 
-            <div class="accordion-item "  >
+        <div class="accordion" id="accordionExample">
 
-                <h2 class="accordion-header " id="headingOne" >
+            <div class="accordion-item" th:each="type :${Type}">
 
-                    <button th:data-bs-target="'#'+${type.typeName}" class="accordion-button collapsed accordion-item-font my-card-bg" type="button" data-bs-toggle="collapse"
-                            aria-expanded="false" aria-controls="collapseTwo" th:text="${type.typeName}">
+                <h2 class="accordion-header" id="headingTwo">
+
+                    <button class="accordion-button collapsed accordion-item-font my-card-bg" type="button" data-bs-toggle="collapse"
+                            th:data-bs-target="'#'+${type.typeName}" aria-expanded="false" aria-controls="collapseTwo" th:text="${type.typeName}">
+                        Accordion Item #2
                     </button>
+
                 </h2>
+                <div th:id="${type.typeName}" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                     data-bs-parent="#accordionExample" >
 
-                <tr th:each="book:${type.getBookSet()}">
+                    <div class="accordion-body my-card-bg">
 
-                    <div th:id="${type.typeName}" class="accordion-collapse collapse " aria-labelledby="headingOne"
-                         data-bs-parent="#accordionExample" >
-
-                        <a th:href="'/book/show/' + ${book.bookId}" class="accordion-body accordion-item-font" th:text="'-'+${book.bookName}"></a>
-
+                            <div class="list-group " th:each="book :${type.getBookSet()}">
+                            <a th:href="'/book/show/' + ${book.bookId}" class="list-group-item list-group-item-action accordion-item-font my-link-bg"
+                               th:text="'->'+${book.bookName}"></a>
+                            </div>
                     </div>
-                </tr>
 
+                </div>
             </div>
+
         </div>
+
+
     </div>
 
 

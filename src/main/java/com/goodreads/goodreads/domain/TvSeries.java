@@ -46,7 +46,10 @@ public class TvSeries {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "tvSeries")
     private Set<Comment> tvSeriesCommentList = new HashSet<>();
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "tvSeries")
+    @ManyToMany
+    @JoinTable(name = "tvSeries_type",
+            joinColumns ={@JoinColumn(name = "type_id")},
+            inverseJoinColumns = {@JoinColumn(name = "tvSeries_id")})
     private Set<Type> tvSeriesTypeSet = new HashSet<>();
 
 }

@@ -44,7 +44,10 @@ public class Movie {
             inverseJoinColumns = {@JoinColumn(name = "director_id")})
     private Set<Director> directorSet = new HashSet<Director>();
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "movie")
+    @ManyToMany
+    @JoinTable(name = "movie_type",
+            joinColumns = {@JoinColumn(name = "movie_id")},
+            inverseJoinColumns = {@JoinColumn(name = "type_id")})
     private Set<Type> movieTypeSet = new HashSet<>();
 
 }
