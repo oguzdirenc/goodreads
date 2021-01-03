@@ -83,10 +83,19 @@ public class TvSeriesServiceImpl implements TvSeriesService {
 
         TvSeries tvSeries = new TvSeries();
 
-        Actor actor = new Actor();
-        actor.setActorName(tvSeriesCommand.getActorName());
-        actorRepository.save(actor);
-        tvSeries.getTvSeriesActorSet().add(actor);
+        List<String> actorNames = actorRepository.getActorNames();
+        if(actorNames.contains(tvSeriesCommand.getActorName())){
+
+            tvSeries.getTvSeriesActorSet().add(actorRepository.findByActorName(tvSeriesCommand.getActorName()));
+
+        }else {
+
+            Actor actor = new Actor();
+            actor.setActorName(tvSeriesCommand.getActorName());
+            actorRepository.save(actor);
+            tvSeries.getTvSeriesActorSet().add(actor);
+        }
+
 
         Director director = new Director();
         director.setDirectorName(tvSeriesCommand.getDirectorName());

@@ -104,10 +104,20 @@ public class MovieServiceImpl implements MovieService {
         directorRepository.save(director);
         movie.getDirectorSet().add(director);
 
-        Actor actor = new Actor();
-        actor.setActorName(movieCommand.getActorName());
-        actorRepository.save(actor);
-        movie.getActorSet().add(actor);
+
+
+        List<String> actorNames = actorRepository.getActorNames();
+        if(actorNames.contains(movieCommand.getActorName())){
+
+            movie.getActorSet().add(actorRepository.findByActorName(movieCommand.getActorName()));
+
+        }else {
+
+            Actor actor = new Actor();
+            actor.setActorName(movieCommand.getActorName());
+            actorRepository.save(actor);
+            movie.getActorSet().add(actor);
+        }
 
         movieCommand.setImage(multipartFile);
         String stringImage = Base64.getEncoder().encodeToString(movieCommand.getImage().getBytes());
