@@ -99,10 +99,18 @@ public class MovieServiceImpl implements MovieService {
         }
 
 
-        Director director = new Director();
-        director.setDirectorName(movieCommand.getDirectorName());
-        directorRepository.save(director);
-        movie.getDirectorSet().add(director);
+        List<String> directorNames = directorRepository.getDirectorNames();
+        if(directorNames.contains(movieCommand.getDirectorName())){
+
+            movie.getDirectorSet().add(directorRepository.findByDirectorName(movieCommand.getDirectorName()));
+
+        }else {
+
+            Director director = new Director();
+            director.setDirectorName(movieCommand.getDirectorName());
+            directorRepository.save(director);
+            movie.getDirectorSet().add(director);
+        }
 
 
 

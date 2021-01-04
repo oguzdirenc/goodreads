@@ -20,7 +20,6 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long authorId;
     private String authorName;
-    private String authorFirstName;
 
     @ManyToMany(cascade = CascadeType.ALL,mappedBy = "authorSet")
     private Set<Book> bookSet = new HashSet<Book>();

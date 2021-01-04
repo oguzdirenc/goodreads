@@ -97,10 +97,18 @@ public class TvSeriesServiceImpl implements TvSeriesService {
         }
 
 
-        Director director = new Director();
-        director.setDirectorName(tvSeriesCommand.getDirectorName());
-        directorRepository.save(director);
-        tvSeries.getTvSeriesDirectorSet().add(director);
+        List<String> directorNames = directorRepository.getDirectorNames();
+        if(directorNames.contains(tvSeriesCommand.getDirectorName())){
+
+            tvSeries.getTvSeriesDirectorSet().add(directorRepository.findByDirectorName(tvSeriesCommand.getDirectorName()));
+
+        }else {
+
+            Director director = new Director();
+            director.setDirectorName(tvSeriesCommand.getDirectorName());
+            directorRepository.save(director);
+            tvSeries.getTvSeriesDirectorSet().add(director);
+        }
 
         List<String> typeNames = typeRepository.getTypeNames();
         if(typeNames.contains(tvSeriesCommand.getType())){
