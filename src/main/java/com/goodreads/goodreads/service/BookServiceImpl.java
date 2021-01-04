@@ -83,10 +83,20 @@ public class BookServiceImpl implements BookService {
         book.setBookPoint(bookCommand.getBookPoint());
         book.setBookUpdateDate(LocalDate.now());
 
-        Author author =new Author();
-        author.setAuthorName(bookCommand.getAuthorName());
-        authorRepository.save(author);
-        book.getAuthorSet().add(author);
+        List<String> authorNames = authorRepository.getTypeNames();
+        if(authorNames.contains(bookCommand.getAuthorName())){
+
+            book.getAuthorSet().add(authorRepository.findByAuthorName(bookCommand.getAuthorName()));
+
+        }else {
+
+            Author author = new Author();
+            author.setAuthorName(bookCommand.getAuthorName());
+            authorRepository.save(author);
+            book.getAuthorSet().add(author);
+        }
+
+
 
         List<String> typeNames = typeRepository.getTypeNames();
         if(typeNames.contains(bookCommand.getType())){
@@ -101,10 +111,18 @@ public class BookServiceImpl implements BookService {
             book.getTypeSet().add(type);
         }
 
-        Publisher publisher = new Publisher();
-        publisher.setPublisherName(bookCommand.getPublisherName());
-        publisherRepository.save(publisher);
-        book.getPublisherSet().add(publisher);
+        List<String> publisherNames = publisherRepository.getPublisherNames();
+        if(publisherNames.contains(bookCommand.getPublisherName())){
+
+            book.getPublisherSet().add(publisherRepository.findByPublisherName(bookCommand.getPublisherName()));
+
+        }else {
+
+            Publisher publisher = new Publisher();
+            publisher.setPublisherName(bookCommand.getPublisherName());
+            publisherRepository.save(publisher);
+            book.getPublisherSet().add(publisher);
+        }
 
 
 
