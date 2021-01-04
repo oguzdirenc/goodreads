@@ -28,8 +28,8 @@
                     <div class="col-md-7">
                         <div class="card-body body-margin">
                             <h2 class="card-title" th:text="${tvSeries.tvSeriesName}" >Card title</h2>
-                            <p class="card-text" th:text="'IMDB : ' + ${tvSeries.imdb}+ '     ***  ' +
-                                      'Season : ' + ${tvSeries.tvSeriesSeason}"></p>
+                            <p class="card-text" th:text="'IMDB : ' + ${tvSeries.imdb}"></p>
+                            <p class="card-text" th:text="'Season : ' + ${tvSeries.tvSeriesSeason}"></p>
                             <p class="card-text" >Actors : </p>
                             <tr th:each="actor : ${tvSeries.tvSeriesActorSet}">
                                 <p class="card-text" th:text="'-'+${actor.actorName}"></p>

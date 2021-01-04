@@ -8,10 +8,15 @@ import com.goodreads.goodreads.service.TypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -49,13 +54,32 @@ public class MovieController {
     }
 
     @PostMapping("/addMovie")
-    public String addMovie(@ModelAttribute MovieCommand movieCommand,
+    public String addMovie(@Valid @ModelAttribute MovieCommand movieCommand,
+                           BindingResult bindingResult,
+                           Model model,
                            @RequestParam("file")MultipartFile multipartFile) throws IOException {
 
-        movieService.saveMovie(movieCommand,multipartFile);
+        if(bindingResult.hasErrors()){
 
-        return "redirect:/index";
+
+            List<String> errors = new ArrayList<>();
+
+            for (Object object : bindingResult.getFieldErrors()){
+                FieldError fieldError = (FieldError)object;
+                errors.add(fieldError.getDefaultMessage());
+            }
+            model.addAttribute("errors",errors);
+
+            return "movie/addMovie";
+        }else {
+
+            movieService.saveMovie(movieCommand,multipartFile);
+
+            return "redirect:/index";
+
+        }
     }
+
 
     @RequestMapping("/delete/{id}")
     public String deleteById(@PathVariable String id, Model model){

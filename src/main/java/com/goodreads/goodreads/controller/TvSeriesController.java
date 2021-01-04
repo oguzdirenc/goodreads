@@ -9,11 +9,16 @@ import com.goodreads.goodreads.service.TypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.thymeleaf.model.IModel;
 
+import javax.validation.Valid;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -46,6 +51,8 @@ public class TvSeriesController {
     @RequestMapping("/addTvSeries")
     public String addTvSeries(Model model) {
 
+
+
         model.addAttribute("tvSeriesCommand", new TvSeriesCommand());
 
         return "/tvSeries/addTvSeries";
@@ -53,14 +60,32 @@ public class TvSeriesController {
     }
 
     @PostMapping("/addTvSeries")
-    public String saveTvSeries(@ModelAttribute TvSeriesCommand tvSeriesCommand,
+    public String saveTvSeries(@Valid @ModelAttribute TvSeriesCommand tvSeriesCommand,
+                               BindingResult bindingResult,
+                               Model model,
                                @RequestParam("file") MultipartFile multipartFile) throws IOException {
 
+        if(bindingResult.hasErrors()){
 
-        tvSeriesService.saveTvSeries(tvSeriesCommand, multipartFile);
+            List<String> errors = new ArrayList<>();
+
+            for (Object object : bindingResult.getFieldErrors()){
+                FieldError fieldError = (FieldError)object;
+                errors.add(fieldError.getDefaultMessage());
+            }
+            model.addAttribute("errors",errors);
+
+            return "tvSeries/addTvSeries";
+        }else {
+
+            tvSeriesService.saveTvSeries(tvSeriesCommand, multipartFile);
 
 
-        return "redirect:/index";
+            return "redirect:/index";
+
+        }
+
+
 
     }
 

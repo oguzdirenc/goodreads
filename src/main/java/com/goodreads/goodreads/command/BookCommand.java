@@ -30,11 +30,16 @@ public class BookCommand {
     @Max(value = 10,message = "Point should not be over 10")
     private double bookPoint;
 
-
+    @NotBlank(message = "Author name should not be blank")
     private String authorName;
+
     private String commentDescription;
+
+    @NotBlank(message = "Publisher name should not be blank")
     private String publisherName;
+
     private String type;
+
     private MultipartFile image;
 
 

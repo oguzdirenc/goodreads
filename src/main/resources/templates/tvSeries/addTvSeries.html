@@ -29,7 +29,7 @@
 
                     <div class="row my-form-size">
                         <div class="my-form-text col-md-3 form-group">
-                            <label >Movie Name:</label>
+                            <label >TvSeries Name:</label>
                         </div>
                         <div class=" col-md-7 form-group">
                             <input type="text" class="form-control" th:field="*{tvSeriesName}"/>
@@ -132,13 +132,14 @@
 
 
                     <button type="submit" class="btn btn-secondary my-submit-button">Submit</button>
-
+                    <div class="alert alert-danger my-alert" role="alert" th:each="error : ${errors}" th:text="${error}"></div>
 
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 
 
 

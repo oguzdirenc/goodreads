@@ -15,6 +15,7 @@ body{
 .my-container{
     margin-top: 30px;
     margin-bottom: 30px;
+
 }
 .my-comment{
     margin-left: 10px;
@@ -34,6 +35,7 @@ body{
 .add-shadow-card{
     box-shadow: 9px 9px 7px 1px rgba(0,0,0,0.47);
     background-color:rgba(244,241,234,0.5) !important;
+    padding-bottom: 20px!important;
 }
 .my-form-size{
     margin: 10px !important;
@@ -47,4 +49,13 @@ body{
     margin-top: 10px;
     margin-left: 20px !important;
     font-size:x-large;
+}
+.my-alert{
+    margin-bottom: 0px !important;
+    margin-top: 0px!important;
+    width: 80%;
+    margin-left:10%!important;
+    height: 25px!important;
+    display: flex;
+    align-items: center;
 }
