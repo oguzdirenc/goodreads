@@ -5,6 +5,10 @@
     <link href="/bookMain.css" rel="stylesheet" type="text/css" th:href="@{/bookMain.css}">
     <link href="/navbar.css" rel="stylesheet" type="text/css" th:href="@{/navbar.css}">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+          crossorigin="anonymous">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
           crossorigin="anonymous">
@@ -43,8 +47,8 @@
                     <div class="accordion-body my-card-bg">
 
                             <div class="list-group " th:each="book :${type.getBookSet()}">
-                            <a th:href="'/book/show/' + ${book.bookId}" class="list-group-item list-group-item-action accordion-item-font my-link-bg"
-                               th:text="'->'+${book.bookName}"></a>
+                            <a th:href="'/book/show/' + ${book.bookId}" class="fas fa-arrow-right list-group-item list-group-item-action accordion-item-font my-link-bg"
+                               th:text="${book.bookName}"></a>
                             </div>
                     </div>
 
@@ -92,8 +96,10 @@
     <div class="list-group col-md-3 my-book-card  my-list-bg " >
         <h3 class="header ">Top 5 Books</h3>
     <tr th:each="topBook : ${TopList}">
-        <a th:href="'/book/show/' + ${topBook.bookId}" class="list-group-item my-card-bg
-        top5-list-font list-group-item-action " th:text="'-'+${topBook.bookName}"></a>
+        <a th:href="'/book/show/' + ${topBook.bookId}" class=" fas fa-arrow-right
+        list-group-item my-card-bg
+        top5-list-font
+        list-group-item-action " th:text="' '+${topBook.bookName}"></a>
     </tr>
         </div>
 

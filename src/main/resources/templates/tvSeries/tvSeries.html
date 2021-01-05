@@ -5,6 +5,12 @@
     <link href="/navbar.css" rel="stylesheet" type="text/css" th:href="@{/navbar.css}">
     <link href="/tvSeriesMain.css" rel="stylesheet" type="text/css" th:href="@{/tvSeriesMain.css}">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+          crossorigin="anonymous">
+
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
           crossorigin="anonymous">
@@ -40,8 +46,9 @@
                         <div class="accordion-body my-card-bg">
 
                             <div class="list-group " th:each="tvSeries :${type.getTvSeriesSet()}">
-                                <a th:href="'/book/show/' + ${tvSeries.tvSeriesId}" class="list-group-item list-group-item-action accordion-item-font my-link-bg"
-                                   th:text="'->'+${tvSeries.tvSeriesName}"></a>
+                                <a th:href="'/book/show/' + ${tvSeries.tvSeriesId}" class="fas fa-arrow-right
+                                list-group-item list-group-item-action accordion-item-font my-link-bg"
+                                   th:text="${tvSeries.tvSeriesName}"></a>
                             </div>
                         </div>
 
@@ -83,7 +90,7 @@
             <h3 class="header ">Top 5 TvSeries</h3>
             <tr th:each="topTvSeries : ${Top5List}">
                 <a th:href="'/tvSeries/show/' + ${topTvSeries.tvSeriesId}"
-                   class="list-group-item top5-list-font my-card-bg list-group-item-action " th:text="'-'+${topTvSeries.tvSeriesName}"></a>
+                   class="fas fa-arrow-right list-group-item top5-list-font my-card-bg list-group-item-action " th:text="${topTvSeries.tvSeriesName}"></a>
             </tr>
         </div>
 
