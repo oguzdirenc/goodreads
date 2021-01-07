@@ -46,9 +46,9 @@
                         <div class="accordion-body my-card-bg">
 
                             <div class="list-group " th:each="tvSeries :${type.getTvSeriesSet()}">
-                                <a th:href="'/book/show/' + ${tvSeries.tvSeriesId}" class="fas fa-arrow-right
+                                <a th:href="'/book/show/' + ${tvSeries.tvSeriesId}" class="fas fa-tv
                                 list-group-item list-group-item-action accordion-item-font my-link-bg"
-                                   th:text="${tvSeries.tvSeriesName}"></a>
+                                   th:text="' '+${tvSeries.tvSeriesName}"></a>
                             </div>
                         </div>
 
@@ -90,7 +90,8 @@
             <h3 class="header ">Top 5 TvSeries</h3>
             <tr th:each="topTvSeries : ${Top5List}">
                 <a th:href="'/tvSeries/show/' + ${topTvSeries.tvSeriesId}"
-                   class="fas fa-arrow-right list-group-item top5-list-font my-card-bg list-group-item-action " th:text="${topTvSeries.tvSeriesName}"></a>
+                   class="fas fa-tv list-group-item top5-list-font my-card-bg list-group-item-action "
+                   th:text="' '+${topTvSeries.tvSeriesName}"></a>
             </tr>
         </div>
 

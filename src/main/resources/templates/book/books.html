@@ -47,8 +47,8 @@
                     <div class="accordion-body my-card-bg">
 
                             <div class="list-group " th:each="book :${type.getBookSet()}">
-                            <a th:href="'/book/show/' + ${book.bookId}" class="fas fa-arrow-right list-group-item list-group-item-action accordion-item-font my-link-bg"
-                               th:text="${book.bookName}"></a>
+                            <a th:href="'/book/show/' + ${book.bookId}" class="fas fa-book list-group-item list-group-item-action accordion-item-font my-link-bg"
+                               th:text="' '+${book.bookName}"></a>
                             </div>
                     </div>
 
@@ -96,7 +96,7 @@
     <div class="list-group col-md-3 my-book-card  my-list-bg " >
         <h3 class="header ">Top 5 Books</h3>
     <tr th:each="topBook : ${TopList}">
-        <a th:href="'/book/show/' + ${topBook.bookId}" class=" fas fa-arrow-right
+        <a th:href="'/book/show/' + ${topBook.bookId}" class=" fas fa-book
         list-group-item my-card-bg
         top5-list-font
         list-group-item-action " th:text="' '+${topBook.bookName}"></a>

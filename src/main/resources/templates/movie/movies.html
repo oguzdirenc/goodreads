@@ -46,9 +46,9 @@
                         <div class="accordion-body my-card-bg">
 
                             <div class="list-group " th:each="movie :${type.getMovieSet()}">
-                                <a th:href="'/book/show/' + ${movie.movieId}" class="fas fa-arrow-right
+                                <a th:href="'/book/show/' + ${movie.movieId}" class="fas fa-film
                                 list-group-item list-group-item-action accordion-item-font my-link-bg"
-                                   th:text="${movie.movieName}"></a>
+                                   th:text="' '+${movie.movieName}"></a>
                             </div>
                         </div>
 
@@ -89,8 +89,9 @@
         <div class="list-group col-md-3 my-movie-card my-list-bg " >
             <h3 class="header ">Top 5 Movies</h3>
             <tr th:each="topMovie : ${Top5List}">
-                <a th:href="'/movie/show/' + ${topMovie.movieId}" class="list-group-item my-card-bg fas fa-arrow-right
-                top5-list-font list-group-item-action " th:text="${topMovie.movieName}"></a>
+                <a th:href="'/movie/show/' + ${topMovie.movieId}" class="list-group-item my-card-bg fas
+                fa-film
+                top5-list-font list-group-item-action " th:text="' '+${topMovie.movieName}"></a>
             </tr>
         </div>
 
