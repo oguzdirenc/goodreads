@@ -62,3 +62,6 @@ body{
 .my-comment-left{
     margin-left: 10px!important;
 }
+.to-add{
+    font-size: small;
+}

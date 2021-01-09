@@ -13,7 +13,7 @@ import java.util.List;
 public interface AuthorRepository extends JpaRepository<Author,Long> {
 
     @Query("select distinct x.authorName from Author x")
-    List<String> getTypeNames();
+    List<String> getAuthorNames();
 
     Author findByAuthorName(String name);
 

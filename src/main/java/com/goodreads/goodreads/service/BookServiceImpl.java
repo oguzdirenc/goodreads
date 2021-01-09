@@ -83,20 +83,26 @@ public class BookServiceImpl implements BookService {
         book.setBookPoint(bookCommand.getBookPoint());
         book.setBookUpdateDate(LocalDate.now());
 
-        List<String> authorNames = authorRepository.getTypeNames();
-        if(authorNames.contains(bookCommand.getAuthorName())){
+        List<String> authorNames = authorRepository.getAuthorNames();
+        String[] authors = bookCommand.getAuthorName().split(",",-2);
 
-            book.getAuthorSet().add(authorRepository.findByAuthorName(bookCommand.getAuthorName()));
+        for(int i=0;i<authors.length;i++) {
 
-        }else {
+            String authorName = authors[i];
 
-            Author author = new Author();
-            author.setAuthorName(bookCommand.getAuthorName());
-            authorRepository.save(author);
-            book.getAuthorSet().add(author);
+            if (authorNames.contains(authorName)) {
+
+                book.getAuthorSet().add(authorRepository.findByAuthorName(authorName));
+
+            } else {
+
+                Author author = new Author();
+                author.setAuthorName(authorName);
+                authorRepository.save(author);
+                book.getAuthorSet().add(author);
+            }
+
         }
-
-
 
         List<String> typeNames = typeRepository.getTypeNames();
         if(typeNames.contains(bookCommand.getType())){
@@ -112,18 +118,24 @@ public class BookServiceImpl implements BookService {
         }
 
         List<String> publisherNames = publisherRepository.getPublisherNames();
-        if(publisherNames.contains(bookCommand.getPublisherName())){
+        String[] publishers = bookCommand.getPublisherName().split(",",-2);
 
-            book.getPublisherSet().add(publisherRepository.findByPublisherName(bookCommand.getPublisherName()));
+        for(int i=0;i<publishers.length;i++) {
 
-        }else {
+            String publisherName = publishers[i];
 
-            Publisher publisher = new Publisher();
-            publisher.setPublisherName(bookCommand.getPublisherName());
-            publisherRepository.save(publisher);
-            book.getPublisherSet().add(publisher);
+            if (publisherNames.contains(publisherName)) {
+
+                book.getPublisherSet().add(publisherRepository.findByPublisherName(publisherName));
+
+            } else {
+
+                Publisher publisher = new Publisher();
+                publisher.setPublisherName(publisherName);
+                publisherRepository.save(publisher);
+                book.getPublisherSet().add(publisher);
+            }
         }
-
 
 
         bookCommand.setImage(multipartFile);

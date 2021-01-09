@@ -15,4 +15,7 @@ public interface PublisherRepository extends JpaRepository<Publisher,Long> {
     List<String> getPublisherNames();
 
     Publisher findByPublisherName(String name);
+
+    @Query("select x from Publisher x order by x.publisherName")
+    List<Author> getPublisherByName();
 }
